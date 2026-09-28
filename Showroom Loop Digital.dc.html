@@ -609,11 +609,10 @@
       acts.appendChild(x); bar.appendChild(acts);
       const f = document.createElement('iframe');
       f.setAttribute('allow', 'autoplay; fullscreen');
-      const abs = new URL(src, location.href).href;
-      fetch(abs, { credentials: 'include' }).then(r => { if (!r.ok) throw 0; return r.text(); }).then(html => {
-        html = /<head[^>]*>/i.test(html) ? html.replace(/<head([^>]*)>/i, '<head$1><base href="' + abs + '">') : '<base href="' + abs + '">' + html;
-        f.src = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
-      }).catch(() => { f.src = abs; });
+      // Direct same-origin URL (no blob: wrapper): ad tags keep a real
+      // origin with cookies. blob: uses an opaque origin and breaks
+      // dynamic/video creatives (DCO decisioning, frequency, viewability).
+      f.src = new URL(src, location.href).href;
       f.style.cssText = 'width:100%; max-width:1400px; flex:1; min-height:0; border:1px solid #2E322D; background:#FFFFFF';
       o.appendChild(bar); o.appendChild(f);
       o.addEventListener('click', e => { if (e.target === o) this.closeDemo(); });
