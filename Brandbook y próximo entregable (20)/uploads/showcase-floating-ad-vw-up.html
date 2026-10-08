@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loop Digital — Floating Rich Media Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#090a0a;
+      --panel:#f1efe9;
+      --paper:#e9e6df;
+      --line:#d7d2ca;
+      --darkline:#222522;
+      --text:#0d0e0e;
+      --body:#403f3b;
+      --lime:#dfff3f;
+      --purple:#a476ff;
+      --white:#f4f1ea;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{background:var(--bg);color:var(--white);font-family:'Archivo',sans-serif}
+    body{min-height:100vh;overflow-x:hidden}
+    .shell{min-height:100vh;background:var(--bg)}
+
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      min-height:86px;padding:18px 28px;
+      display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:20px;align-items:center;
+      background:rgba(9,10,10,.985);
+      border-bottom:1px solid var(--darkline);
+    }
+    .logo{justify-self:start;font-weight:900;font-size:32px;line-height:.72;letter-spacing:-2px;color:#fff}
+    .showcase-title{justify-self:center;text-align:center;font:700 12px/1 'JetBrains Mono',monospace;letter-spacing:4px;color:#fff;white-space:nowrap}
+    .close{justify-self:end;border:1px solid #252a25;border-radius:28px;padding:14px 22px;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:2px;text-transform:uppercase;color:#fff}
+
+    .page-wrap{width:min(1180px,calc(100% - 64px));margin:28px auto 54px}
+    .meta-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:14px}
+    .context-label{font:700 11px/1 'JetBrains Mono',monospace;color:var(--lime);letter-spacing:2.5px;text-transform:uppercase}
+    .devices{display:flex;gap:24px;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:2px;text-transform:uppercase;color:#676b67;white-space:nowrap}
+    .devices span:first-child{color:#fff;padding-bottom:8px;border-bottom:1px solid #fff}
+
+    .browser{border:1px solid #1e211f;background:#101210}
+    .browser-chrome{height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;background:#111310;border-bottom:1px solid #1e211f}
+    .dot{width:10px;height:10px;border-radius:50%;background:#424742}
+    .url{margin-left:12px;flex:1;height:25px;border:1px solid #242724;background:#0c0d0c;color:#5d625d;padding:6px 12px;font:10px/1 'JetBrains Mono',monospace;letter-spacing:2px}
+
+    .publisher{background:var(--panel);color:var(--text);min-height:0}
+
+    .hero{padding:46px 40px 34px;border-bottom:1px solid var(--line)}
+    .hero h1{font-size:50px;line-height:.9;letter-spacing:-2.8px;text-transform:uppercase;font-weight:900;white-space:nowrap}
+    .hero p{margin-top:22px;max-width:860px;font-size:16px;line-height:1.62;color:#373632}
+
+    .newsnav{display:flex;gap:34px;padding:17px 40px;border-bottom:1px solid var(--line);font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:3px;text-transform:uppercase;color:#6b685f;overflow:auto;white-space:nowrap}
+    .newsnav span:first-child{color:#111;padding-bottom:8px;border-bottom:2px solid #111}
+
+    .content{padding:40px 40px 44px}
+
+    .top-grid{display:grid;grid-template-columns:minmax(0,1.34fr) minmax(320px,.66fr);gap:52px;align-items:start}
+    .kicker{font:700 10px/1 'JetBrains Mono',monospace;color:var(--purple);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+    .story h2{font-size:37px;line-height:1.02;letter-spacing:-1.7px;text-transform:uppercase;max-width:720px;margin-bottom:20px}
+    .story p{max-width:760px;font-size:15.5px;line-height:1.72;color:var(--body);margin-bottom:15px}
+
+    .strategy-panel{border-left:1px solid var(--line);padding-left:28px}
+    .strategy-panel h3{font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:2.5px;color:#8c8983;text-transform:uppercase;margin-bottom:18px}
+    .story-item{display:grid;grid-template-columns:34px 1fr;gap:10px;padding-bottom:18px}
+    .story-item .num{font-size:19px;font-weight:900;color:#c7c3bb;line-height:1}
+    .story-item .txt{font-size:13.5px;line-height:1.42;font-weight:700}
+
+    .voice-block{margin-top:30px;padding-top:28px;border-top:1px solid var(--line)}
+    .voice-block h3{font-size:30px;line-height:1.05;letter-spacing:-1px;text-transform:uppercase;max-width:700px;margin-bottom:14px}
+    .voice-block>p{max-width:780px;margin-bottom:22px;font-size:15.5px;line-height:1.7;color:var(--body)}
+    .voice-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+    .voice-point{border-top:1px solid var(--line);padding-top:14px}
+    .voice-point strong{display:block;font-size:14px;text-transform:uppercase;margin-bottom:7px}
+    .voice-point span{display:block;font-size:13px;line-height:1.52;color:#5a554d}
+
+    .placement-feature{margin-top:32px;padding:32px;background:var(--paper);display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:46px;align-items:start}
+    .placement-feature h3{font-size:29px;line-height:1.04;letter-spacing:-1px;text-transform:uppercase;margin-bottom:14px}
+    .placement-feature p{font-size:14.5px;line-height:1.68;color:#4f4b45;max-width:680px}
+    .placement-notes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+    .placement-note{border-top:1px solid var(--line);padding-top:12px}
+    .placement-note strong{display:block;font-size:13px;text-transform:uppercase;margin-bottom:6px}
+    .placement-note span{display:block;font-size:13px;line-height:1.5;color:#5a554d}
+
+    .placement-panel{position:sticky;top:108px}
+    .placement-label{width:100%;text-align:center;margin-bottom:12px;font:700 10px/1 'JetBrains Mono',monospace;color:var(--purple);letter-spacing:3px;text-transform:uppercase}
+    .creative-shell{width:320px;height:480px;margin:0 auto;position:relative;overflow:visible;line-height:0}
+
+    .format-strip{margin-top:34px;padding-top:28px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+    .format-card{border-top:1px solid var(--line);padding-top:15px}
+    .format-card .mini{font:700 10px/1 'JetBrains Mono',monospace;color:#8c8983;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px}
+    .format-card h4{font-size:18px;line-height:1.12;text-transform:uppercase;margin-bottom:8px}
+    .format-card p{font-size:13.5px;line-height:1.52;color:#55514a}
+
+    .impact-section{margin-top:32px;padding-top:28px;border-top:1px solid var(--line)}
+    .impact-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.82fr);gap:46px;align-items:end;margin-bottom:24px}
+    .impact-head h3{font-size:38px;line-height:.98;letter-spacing:-1.3px;text-transform:uppercase}
+    .impact-head p{font-size:15px;line-height:1.68;color:#4f4b45;max-width:480px}
+    .impact-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+    .impact-card{border:1px solid var(--line);padding:18px 16px 20px;min-height:154px}
+    .impact-card strong{display:block;color:var(--purple);font-size:17px;text-transform:uppercase;margin-bottom:12px}
+    .impact-card span{display:block;font-size:13.25px;line-height:1.52;color:#56514b}
+
+    .impact-path{margin-top:26px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+    .impact-path-item{border-top:1px solid var(--line);padding-top:14px;min-height:108px}
+    .impact-path-item .num{font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:2px;color:var(--purple);margin-bottom:9px}
+    .impact-path-item strong{display:block;font-size:14px;text-transform:uppercase;margin-bottom:7px}
+    .impact-path-item span{display:block;font-size:13px;line-height:1.5;color:#5a554d}
+
+    .strategy-band{margin-top:30px;background:#0d0f0f;color:#fff;padding:36px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:42px;align-items:center}
+    .strategy-band .kicker{color:var(--purple)}
+    .strategy-band h3{color:var(--lime);font-size:34px;line-height:1.02;letter-spacing:-1px;text-transform:uppercase}
+    .strategy-band p{font-size:14.5px;line-height:1.65;color:#b8bab6;max-width:500px;justify-self:end}
+
+    .experience-block{margin-top:30px;padding:32px 34px;background:var(--paper);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:42px;align-items:start}
+    .experience-block h3{font-size:28px;line-height:1.04;letter-spacing:-1px;text-transform:uppercase;margin-bottom:12px}
+    .experience-block p{font-size:14.5px;line-height:1.65;color:#4f4b45;max-width:620px;margin-bottom:18px}
+    .experience-proof{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+    .experience-proof-item,.experience-item{border-top:1px solid var(--line);padding-top:11px}
+    .experience-proof-item strong,.experience-item strong{display:block;font-size:13px;text-transform:uppercase;margin-bottom:6px}
+    .experience-proof-item span,.experience-item span{display:block;font-size:13px;line-height:1.5;color:#5a554d}
+    .experience-list{display:grid;gap:14px}
+
+    .publisher-footer{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 40px;border-top:1px solid var(--line);background:var(--panel);color:#6c6a64;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:2px;text-transform:uppercase}
+    .global-footer{border-top:1px solid var(--darkline);padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:24px;background:#090a0a;font:700 9px/1 'JetBrains Mono',monospace;letter-spacing:2px;text-transform:uppercase}
+    .global-footer span:last-child{color:var(--lime)}
+
+    /* Preserve Adform native behavior. Do not force the creative to fake slots. */
+    .creative-shell,.creative-shell *{pointer-events:auto!important}
+    .adform-adbox,.adform-adnotice,.adform-adbox-floated,.adform-adbox-expanded{overflow:visible!important;max-width:none!important;max-height:none!important}
+    .adform-adbox-floated,.adform-adbox-expanded,.adform-adbox-floated.expanded,[class*="adform"][class*="expanded"]{z-index:2147483647!important;pointer-events:auto!important}
+
+    html:not(.standalone) .topbar{display:none}
+    html:not(.standalone) .global-footer{display:none}
+    html.standalone .topbar{display:grid}
+
+    @media(max-width:1100px){
+      .impact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .impact-card:last-child{grid-column:1/-1}
+      .impact-path{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+
+    @media(max-width:980px){
+      .topbar{grid-template-columns:1fr;gap:14px;padding:18px 20px}
+      .logo,.showcase-title,.close{justify-self:start}
+      .showcase-title{white-space:normal}
+      .page-wrap{width:calc(100% - 24px);margin:20px auto 40px}
+      .meta-row{align-items:flex-start;flex-direction:column}
+      .devices{align-self:flex-end}
+      .hero{padding:34px 24px 28px}
+      .hero h1{font-size:40px;white-space:normal}
+      .newsnav{padding:16px 24px}
+      .content{padding:28px 24px 36px}
+      .top-grid,.voice-points,.placement-feature,.placement-notes,.format-strip,.impact-head,.impact-grid,.impact-path,.strategy-band,.experience-block,.experience-proof{grid-template-columns:1fr}
+      .impact-card:last-child{grid-column:auto}
+      .strategy-panel{border-left:0;border-top:1px solid var(--line);padding:24px 0 0}
+      .placement-panel{position:static;margin-top:10px}
+      .strategy-band p{justify-self:start;max-width:100%}
+      .publisher-footer,.global-footer{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="logo">LOOP<br>DIGITAL</div>
+    <div class="showcase-title">Floating Rich Media — Campaign Showcase</div>
+    <div class="close">× Cerrar</div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="meta-row">
+      <div class="context-label">Desktop — Loop Digital Simulated Publisher</div>
+      <div class="devices"><span>Desktop</span><span>iPad</span><span>Mobile</span></div>
+    </div>
+
+    <section class="browser">
+      <div class="browser-chrome">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="url">www.publisher-demo.example/editorial</div>
+      </div>
+
+      <div class="publisher">
+        <section class="hero">
+          <h1>Loop Digital Campaign Showcase</h1>
+          <p>This simulated premium publisher environment shows how programmatic advertising lives in context. Explore examples of Display, Rich Media and Dynamic Ads — and see how Loop Digital turns premium inventory into brand presence, interaction and real-time relevance.</p>
+        </section>
+
+        <nav class="newsnav">
+          <span>News</span><span>Business</span><span>Sport</span><span>Culture</span><span>Lifestyle</span><span>Tech</span>
+        </nav>
+
+        <div class="content">
+          <div class="top-grid">
+            <section class="story">
+              <div class="kicker">Top Story</div>
+              <h2>See how premium media lives inside the publisher experience</h2>
+              <p>Rather than presenting ads as isolated assets, this showcase places them inside a realistic editorial journey — surrounded by navigation, content and reading moments — so you can understand how the brand is actually experienced.</p>
+              <p>Each placement demonstrates a different role within a brand awareness strategy: Display builds presence, Rich Media creates attention and interaction, and Dynamic Ads adapt to audience, context and moment for real-time relevance.</p>
+            </section>
+
+            <aside class="strategy-panel">
+              <h3>What This Showcase Demonstrates</h3>
+              <div class="story-item"><div class="num">01</div><div class="txt">DISPLAY — Consistent presence across premium publisher environments.</div></div>
+              <div class="story-item"><div class="num">02</div><div class="txt">RICH MEDIA — High-impact interaction designed to earn attention.</div></div>
+              <div class="story-item"><div class="num">03</div><div class="txt">DYNAMIC ADS — Real-time relevance shaped by audience, context and moment.</div></div>
+            </aside>
+          </div>
+
+          <section class="voice-block">
+            <div class="kicker">Why context matters</div>
+            <h3>Where your brand appears matters</h3>
+            <p>Premium media is not only about being seen. It is about placing the brand in environments where attention, context and relevance work together — creating presence that feels intentional, credible and worth remembering.</p>
+            <div class="voice-points">
+              <div class="voice-point"><strong>Attention</strong><span>Premium placements earn visibility without competing with the experience around them.</span></div>
+              <div class="voice-point"><strong>Context</strong><span>The right environment gives every impression greater meaning and strengthens how the brand is perceived.</span></div>
+              <div class="voice-point"><strong>Relevance</strong><span>Smart technology and human direction connect the message to the right audience, moment and media context.</span></div>
+            </div>
+          </section>
+
+          <section class="placement-feature">
+            <div>
+              <div class="kicker">Rich Media in context</div>
+              <h3>Attention becomes more valuable when the experience gives it room to work</h3>
+              <p>Rich Media should feel like a deliberate extension of the brand idea. The goal is not to fill the page with inventory, but to use interaction, scale and movement to create a stronger memory of the message.</p>
+
+              <div class="placement-notes">
+                <div class="placement-note"><strong>Interaction with purpose</strong><span>Every interaction should add meaning to the creative idea, not simply add more elements to the screen.</span></div>
+                <div class="placement-note"><strong>Premium attention</strong><span>The format creates a focused brand moment while preserving the hierarchy of the publisher environment.</span></div>
+                <div class="placement-note"><strong>Brand memory</strong><span>When context, creativity and interaction work together, visibility has a better chance of becoming recognition.</span></div>
+                <div class="placement-note"><strong>Smarter presence</strong><span>Technology creates the possibilities. Human direction decides which ones deserve the audience’s attention.</span></div>
+              </div>
+            </div>
+
+            <div class="placement-panel">
+                            <div class="creative-shell">
+                <div style="width:320px;height:480px;position:relative;">
+      <script src="https://track.adform.net/adfscript/?bn=35957582"></script>
+<noscript><a href="https://track.adform.net/C/?bn=35957582;C=0" target="_blank"><img src="https://track.adform.net/adfserve/?bn=35957582;srctype=4;ord=[timestamp]" border="0" alt=""></a></noscript>
+    </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="format-strip">
+            <div class="format-card"><div class="mini">Display</div><h4>Presence</h4><p>Consistent presence across premium publisher environments helps the brand stay visible and recognizable.</p></div>
+            <div class="format-card"><div class="mini">Rich Media</div><h4>Attention + Interaction</h4><p>High-impact interactive formats create stronger attention moments and invite audiences to engage beyond the impression.</p></div>
+            <div class="format-card"><div class="mini">Dynamic Ads</div><h4>Real-time relevance</h4><p>Creative can adapt to audience, context and moment while preserving one consistent brand idea.</p></div>
+          </section>
+
+          <section class="impact-section">
+            <div class="impact-head">
+              <div>
+                <div class="kicker">08 — Built for brand impact</div>
+                <h3>More than reach</h3>
+              </div>
+              <p>Reach is only the starting point. The real value is building presence, relevance, recognition, recall and stronger brand perception over time.</p>
+            </div>
+
+            <div class="impact-grid">
+              <div class="impact-card"><strong>Presence</strong><span>Show up consistently where it matters, building familiarity through premium, intentional exposure.</span></div>
+              <div class="impact-card"><strong>Relevance</strong><span>Build stronger connections through more relevant media choices, contexts and audience moments.</span></div>
+              <div class="impact-card"><strong>Recognition</strong><span>Create familiarity across connected touchpoints so the brand becomes easier to identify.</span></div>
+              <div class="impact-card"><strong>Recall</strong><span>Strengthen memory through repeated, coherent exposure across screens and premium environments.</span></div>
+              <div class="impact-card"><strong>Perception</strong><span>Influence how the brand is experienced by controlling the quality of where and how it appears.</span></div>
+            </div>
+
+            <div class="impact-path">
+              <div class="impact-path-item"><div class="num">01</div><strong>Be present</strong><span>Own the environments where attention already exists.</span></div>
+              <div class="impact-path-item"><div class="num">02</div><strong>Stay relevant</strong><span>Connect message, context and audience at the right moment.</span></div>
+              <div class="impact-path-item"><div class="num">03</div><strong>Build recognition</strong><span>Create continuity across screens, formats and touchpoints.</span></div>
+              <div class="impact-path-item"><div class="num">04</div><strong>Strengthen memory</strong><span>Turn repeated premium exposure into lasting brand recall.</span></div>
+            </div>
+          </section>
+
+          <section class="strategy-band">
+            <div>
+              <div class="kicker">One connected brand experience</div>
+              <h3>Every screen. One intelligent strategy.</h3>
+            </div>
+            <p>Premium display, rich media and dynamic creative work together as one brand experience. Smart technology creates the possibilities. Human direction gives them purpose.</p>
+          </section>
+
+          <section class="experience-block">
+            <div>
+              <div class="kicker">Smarter brand presence</div>
+              <h3>We don’t buy impressions. We design connections.</h3>
+              <p>Premium media works best when environment, format, audience and moment reinforce the same brand idea.</p>
+              <div class="experience-proof">
+                <div class="experience-proof-item"><strong>Premium environments</strong><span>Media quality shapes perception. The right context makes the brand feel more credible, intentional and memorable.</span></div>
+                <div class="experience-proof-item"><strong>Connected touchpoints</strong><span>Each screen reinforces the same idea, creating continuity instead of isolated impressions.</span></div>
+                <div class="experience-proof-item"><strong>Precision with purpose</strong><span>Audience and contextual signals make media more relevant without compromising consistency.</span></div>
+                <div class="experience-proof-item"><strong>Smarter presence</strong><span>Attention and interaction signals help refine where the brand appears and how each moment contributes to memory.</span></div>
+              </div>
+            </div>
+
+            <div class="experience-list">
+              <div class="experience-item"><strong>Position</strong><span>Choose environments where the brand can appear with credibility, relevance and the right level of visibility.</span></div>
+              <div class="experience-item"><strong>Curate</strong><span>Build a media mix that feels intentional, premium and aligned with how the brand wants to be perceived.</span></div>
+              <div class="experience-item"><strong>Connect</strong><span>Use context and audience signals to make each impression feel more meaningful.</span></div>
+              <div class="experience-item"><strong>Refine</strong><span>Learn from attention and interaction signals to create smarter presence across the media journey.</span></div>
+            </div>
+          </section>
+        </div>
+
+        <div class="publisher-footer">
+          <span>Loop Digital · Simulated Publisher</span>
+          <span>Display · Rich Media · Dynamic Ads</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="global-footer">
+    <span>Loop Digital — Premium media for brands that want to be remembered.</span>
+    <span>Where your brand appears matters.</span>
+  </footer>
+</div>
+
+<script>
+  if (window.self === window.top) {
+    document.documentElement.classList.add('standalone');
+  }
+
+  (function(){
+    function prepare(frame){
+      if (!frame || frame.tagName !== 'IFRAME') return;
+      try {
+        frame.setAttribute('allow','autoplay; fullscreen; picture-in-picture; encrypted-media');
+        frame.setAttribute('allowfullscreen','');
+        frame.style.setProperty('pointer-events','auto','important');
+        frame.style.setProperty('border','0','important');
+      } catch(e) {}
+    }
+
+    function scan(root){
+      var scope = root && root.querySelectorAll ? root : document;
+      if (scope.tagName === 'IFRAME') prepare(scope);
+      scope.querySelectorAll('iframe').forEach(prepare);
+    }
+
+    scan(document);
+
+    new MutationObserver(function(mutations){
+      mutations.forEach(function(m){
+        Array.prototype.forEach.call(m.addedNodes || [], function(node){
+          if (node && node.nodeType === 1) scan(node);
+        });
+      });
+    }).observe(document.documentElement,{childList:true,subtree:true});
+  })();
+</script>
+</body>
+</html>

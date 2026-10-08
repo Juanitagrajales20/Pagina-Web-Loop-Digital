@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loop Digital — Nykštukas Premium Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#090a0a;
+      --panel:#f1efe9;
+      --paper:#f7f4ed;
+      --line:#d9d3c9;
+      --soft:#e6e0d6;
+      --text:#0d0e0e;
+      --body:#44413c;
+      --muted:#8a857c;
+      --lime:#dfff3f;
+      --purple:#a476ff;
+      --white:#f4f1ea;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{background:var(--bg);color:var(--white);font-family:'Archivo',sans-serif}
+    body{min-height:100vh}
+    .shell{min-height:100vh;background:var(--bg)}
+
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      display:grid;grid-template-columns:1fr 1.5fr 1fr;align-items:center;
+      gap:20px;
+      padding:18px 28px;
+      min-height:86px;
+      background:rgba(9,10,10,.98);
+      border-bottom:1px solid #1e211f;
+    }
+    .logo{
+      justify-self:start;
+      font-weight:900;
+      font-size:32px;
+      line-height:.72;
+      letter-spacing:-2px;
+      color:#fff;
+    }
+    .showcase-title{
+      justify-self:center;
+      text-align:center;
+      font:700 12px/1 'JetBrains Mono',monospace;
+      letter-spacing:4px;
+      color:#fff;
+      white-space:nowrap;
+    }
+    .close{
+      justify-self:end;
+      border:1px solid #252a25;
+      border-radius:28px;
+      padding:14px 22px;
+      font:700 10px/1 'JetBrains Mono',monospace;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:#fff;
+    }
+
+    .page-wrap{width:min(1180px,calc(100% - 64px));margin:28px auto 54px}
+    .context-label{
+      font:700 11px/1 'JetBrains Mono',monospace;
+      color:var(--lime);
+      letter-spacing:2.5px;
+      text-transform:uppercase;
+      margin:0 0 14px;
+    }
+
+
+    .showcase-controls{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      align-items:end;
+      column-gap:28px;
+      width:100%;
+      margin:0 0 14px;
+    }
+    .showcase-controls .context-label{margin:0;justify-self:start}
+    .devices{
+      justify-self:end;
+      margin-left:auto;
+      display:flex;
+      align-items:center;
+      gap:24px;
+      font:700 10px/1 'JetBrains Mono',monospace;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:#5f635f;
+      white-space:nowrap;
+    }
+    .devices span{padding:0 0 8px}
+    .devices span:first-child{color:#fff;border-bottom:1px solid #fff}
+
+    .browser{
+      border:1px solid #1e211f;
+      background:#101210;
+    }
+    .browser-chrome{
+      height:44px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:0 14px;
+      border-bottom:1px solid #1e211f;
+      background:#111310;
+    }
+    .dot{width:10px;height:10px;border-radius:50%;background:#424742;flex:0 0 auto}
+    .url{
+      margin-left:12px;
+      flex:1;
+      height:25px;
+      border:1px solid #242724;
+      background:#0c0d0c;
+      color:#5d625d;
+      padding:6px 12px;
+      font:10px/1 'JetBrains Mono',monospace;
+      letter-spacing:2px;
+      overflow:hidden;
+      white-space:nowrap;
+    }
+
+    .publisher{
+      background:var(--panel);
+      color:var(--text);
+      border:1px solid #1e211f;
+    }
+
+    .hero{
+      padding:44px 34px 32px;
+      border-bottom:1px solid var(--line);
+    }
+    .hero-copy{max-width:820px}
+    .hero h1{
+      font-size:54px;
+      line-height:.86;
+      letter-spacing:-3.4px;
+      text-transform:uppercase;
+      font-weight:900;
+      max-width:760px;
+    }
+    .hero p{
+      margin-top:24px;
+      max-width:820px;
+      font-size:17px;
+      line-height:1.55;
+      color:#373632;
+    }
+
+    .newsnav{
+      display:flex;
+      gap:34px;
+      padding:17px 34px;
+      border-bottom:1px solid var(--line);
+      font:700 10px/1 'JetBrains Mono',monospace;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#6b685f;
+      overflow:auto;
+      white-space:nowrap;
+    }
+    .newsnav span:first-child{color:#111;padding-bottom:8px;border-bottom:2px solid #111}
+
+    .content{padding:34px}
+
+    .placement-block{display:flex;flex-direction:column;align-items:center}
+    .placement-label{
+      display:block;
+      width:100%;
+      margin:0 0 12px;
+      text-align:center;
+      font:700 10px/1 'JetBrains Mono',monospace;
+      color:var(--purple);
+      letter-spacing:4px;
+      text-transform:uppercase;
+    }
+    .placement-label.left{text-align:left}
+
+    .ad-shell{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:fit-content;
+      background:transparent;
+      overflow:visible;
+      line-height:0;
+    }
+    .ad-shell.soft-outline{border:1px solid var(--soft)}
+    .ad-shell::after{
+      content:'';
+      position:absolute;
+      right:7px;
+      top:7px;
+      width:12px;
+      height:12px;
+      border:2px solid #70c4d6;
+      border-left-color:transparent;
+      border-bottom-color:transparent;
+      opacity:.85;
+      pointer-events:none;
+      z-index:2;
+    }
+
+    .billboard-section{
+      display:flex;
+      justify-content:center;
+      padding:6px 0 34px;
+      border-bottom:1px solid var(--line);
+    }
+    .billboard-slot{width:970px;height:250px;max-width:100%;overflow:visible}
+
+    .main-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 300px;
+      gap:40px;
+      align-items:start;
+      padding-top:34px;
+    }
+
+    .article{min-width:0}
+    .kicker{
+      font:700 10px/1 'JetBrains Mono',monospace;
+      color:var(--purple);
+      letter-spacing:3px;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+    .article h2{
+      font-size:34px;
+      line-height:.96;
+      letter-spacing:-1.8px;
+      text-transform:uppercase;
+      margin-bottom:18px;
+      max-width:760px;
+    }
+    .article p, .copy-block p, .intro-copy p, .insight-card p{
+      color:var(--body);
+      font-size:16px;
+      line-height:1.65;
+    }
+    .article p{margin-bottom:16px;max-width:860px}
+    .divider{border-top:1px solid var(--line);margin:28px 0}
+
+    .inarticle-row{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 300px;
+      gap:34px;
+      align-items:start;
+      margin:28px 0 30px;
+    }
+    .copy-block h3{
+      font-size:24px;
+      line-height:1.05;
+      letter-spacing:-.8px;
+      text-transform:uppercase;
+      margin:0 0 12px;
+    }
+
+    .voice-block{
+      margin:4px 0 30px;
+      padding:24px 0 4px;
+      border-top:1px solid var(--line);
+    }
+    .voice-block .voice-kicker{
+      font:700 10px/1 'JetBrains Mono',monospace;
+      color:var(--purple);
+      letter-spacing:3px;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+    .voice-block h3{
+      font-size:26px;
+      line-height:1.02;
+      letter-spacing:-1px;
+      text-transform:uppercase;
+      margin-bottom:14px;
+      max-width:650px;
+    }
+    .voice-block > p{
+      color:var(--body);
+      font-size:15.5px;
+      line-height:1.65;
+      max-width:690px;
+      margin-bottom:20px;
+    }
+    .voice-points{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+    .voice-point{
+      border-top:1px solid var(--line);
+      padding-top:14px;
+    }
+    .voice-point strong{
+      display:block;
+      font-size:14px;
+      line-height:1.2;
+      text-transform:uppercase;
+      margin-bottom:7px;
+    }
+    .voice-point span{
+      display:block;
+      font-size:13.5px;
+      line-height:1.48;
+      color:#5a554d;
+    }
+
+    .medium-slot{width:300px;height:250px;overflow:visible}
+    .halfpage-slot{width:300px;height:600px;overflow:visible}
+
+    .sidebar{position:sticky;top:108px;align-self:start}
+    .sidebar-placement{display:flex;flex-direction:column;align-items:center}
+    .campaign-story{
+      margin-top:26px;
+      padding-top:22px;
+      border-top:1px solid var(--line);
+    }
+    .campaign-story h3{
+      font:700 10px/1 'JetBrains Mono',monospace;
+      color:#8d8981;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      margin-bottom:16px;
+    }
+    .story-item{
+      display:grid;
+      grid-template-columns:36px 1fr;
+      gap:10px;
+      margin-bottom:16px;
+    }
+    .story-item .num{font-size:20px;font-weight:900;color:#c8c3b8;line-height:1}
+    .story-item .txt{font-size:15px;line-height:1.28;font-weight:800;color:#181717}
+
+    .strategy-intro{
+      margin-top:6px;
+      padding:0 0 6px;
+    }
+
+    .insights-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:18px;
+      margin-top:22px;
+    }
+    .insight-card{
+      border-top:1px solid var(--line);
+      padding-top:16px;
+    }
+    .insight-card .mini-kicker{
+      font:700 10px/1 'JetBrains Mono',monospace;
+      color:#8d8981;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+    .insight-card h4{
+      font-size:20px;
+      line-height:1.08;
+      letter-spacing:-.6px;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .publisher-footer{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:22px 34px;
+      border-top:1px solid var(--line);
+      font:700 10px/1 'JetBrains Mono',monospace;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:#6c685f;
+    }
+
+    html:not(.standalone) .topbar{display:none}
+    html.standalone .topbar{display:grid}
+    html:not(.standalone) .global-footer{display:none}
+    html.standalone .global-footer{display:flex}
+
+    .billboard-slot iframe,
+    .billboard-slot img,
+    .billboard-slot canvas,
+    .billboard-slot video,
+    .billboard-slot .adform-adbox,
+    .billboard-slot .adform-adnotice{
+      width:970px !important;
+      height:250px !important;
+      max-width:none !important;
+      max-height:none !important;
+      transform:none !important;
+      overflow:visible !important;
+    }
+
+    .adform-adbox,
+    .adform-adbox-floated,
+    .adform-adnotice,
+    .adform-adbox-expanded{
+      overflow:visible !important;
+      max-width:none !important;
+      max-height:none !important;
+      z-index:99999 !important;
+    }
+
+
+    .global-footer{
+      border-top:1px solid #1e211f;
+      padding:16px 24px 18px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:48px;
+      background:#090a0a;
+      color:#777b77;
+      font:700 9px/1 'JetBrains Mono',monospace;
+      letter-spacing:3px;
+      text-transform:uppercase;
+    }
+
+    @media (max-width: 1100px){
+      .topbar{grid-template-columns:1fr;gap:14px;padding:18px 20px}
+      .logo,.showcase-title,.close{justify-self:start}
+      .showcase-title{white-space:normal}
+      .page-wrap{width:calc(100% - 24px);margin:20px auto 40px}
+      .showcase-controls{grid-template-columns:1fr;row-gap:12px;align-items:start}
+      .devices{justify-self:start;margin-left:0;gap:18px}
+      .browser-chrome{height:42px}
+      .hero{padding:34px 24px 28px}
+      .hero h1{font-size:42px}
+      .hero p{font-size:16px}
+      .newsnav{padding:16px 24px}
+      .content{padding:26px 24px}
+      .main-grid,
+      .inarticle-row,
+      .insights-grid{grid-template-columns:1fr}
+      .voice-points{grid-template-columns:1fr}
+      .sidebar{position:static}
+      .publisher-footer{padding:20px 24px;flex-direction:column;align-items:flex-start}
+      .billboard-section{overflow:auto;padding-bottom:28px}
+      .billboard-slot{min-width:970px}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="logo">LOOP<br>DIGITAL</div>
+      <div class="showcase-title">Standard Ads - Nykštukas Weather Targeting</div>
+      <div class="close">× Cerrar</div>
+    </header>
+
+    <main class="page-wrap">
+      <div class="showcase-controls">
+        <div class="context-label">Desktop — Loop Digital Simulated Publisher</div>
+        <div class="devices" aria-label="Device preview">
+          <span>Desktop</span><span>iPad</span><span>Mobile</span>
+        </div>
+      </div>
+
+      <section class="browser">
+        <div class="browser-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <div class="url">www.publisher-demo.example/editorial</div>
+        </div>
+
+        <section class="publisher">
+        <section class="hero">
+          <div class="hero-copy">
+            <h1 style="white-space:nowrap;">Loop Digital Campaign Showcase</h1>
+            <p>This simulated premium publisher environment shows how programmatic advertising lives in context. Explore examples of Display, Rich Media and Dynamic Ads — and see how Loop Digital turns premium inventory into brand presence, interaction and real-time relevance.</p>
+          </div>
+        </section>
+
+        <nav class="newsnav">
+          <span>News</span>
+          <span>Business</span>
+          <span>Sport</span>
+          <span>Culture</span>
+          <span>Lifestyle</span>
+          <span>Tech</span>
+        </nav>
+
+        <div class="content">
+          <section class="billboard-section">
+            <div class="placement-block">
+              <div class="placement-label">Billboard · 970 × 250</div>
+              <div class="ad-shell soft-outline billboard-slot">
+                <script src="https://track.adform.net/adfscript/?bn=85041435"></script>
+                <noscript><a href="https://track.adform.net/C/?bn=85041435;C=0" target="_blank"><img src="https://track.adform.net/adfserve/?bn=85041435;srctype=4;ord=[timestamp]" border="0" alt=""></a></noscript>
+              </div>
+            </div>
+          </section>
+
+          <div class="main-grid">
+            <article class="article">
+              <div class="kicker">Top Story</div>
+              <h2>See how premium media lives inside the publisher experience</h2>
+              <p>Rather than presenting ads as isolated assets, this showcase places them inside a realistic editorial journey — surrounded by navigation, content and reading moments — so you can understand how the brand is actually experienced.</p>
+              <p>Each placement demonstrates a different role within a brand awareness strategy: Display builds presence, Rich Media creates attention and interaction, and Dynamic Ads adapt to audience, context and moment for real-time relevance.</p>
+
+              <section class="voice-block">
+                <div class="voice-kicker">Why context matters</div>
+                <h3>Where your brand appears matters</h3>
+                <p>Premium media is not only about being seen. It is about designing the right connection between environment, audience and moment — so every impression feels intentional, relevant and worth remembering.</p>
+                <div class="voice-points">
+                  <div class="voice-point">
+                    <strong>Attention</strong>
+                    <span>High-quality placements give the brand space to be noticed without overwhelming the experience around it.</span>
+                  </div>
+                  <div class="voice-point">
+                    <strong>Context</strong>
+                    <span>Premium environments strengthen how the message is perceived and help turn visibility into meaningful brand presence.</span>
+                  </div>
+                  <div class="voice-point">
+                    <strong>Relevance</strong>
+                    <span>Smart technology and human direction connect the creative to the right audience, media environment and moment.</span>
+                  </div>
+                </div>
+              </section>
+
+              <div class="divider"></div>
+
+              <div class="inarticle-row">
+                <div class="copy-block">
+                  <h3>In-content brand presence</h3>
+                  <p>The medium rectangle demonstrates how premium display can reinforce awareness inside the editorial flow, creating a natural visibility moment while the audience is actively engaged with content.</p>
+                </div>
+                <div class="placement-block">
+                  <div class="placement-label">Medium Rectangle · 300 × 250</div>
+                  <div class="ad-shell soft-outline medium-slot">
+                    <script src="https://track.adform.net/adfscript/?bn=85041437"></script>
+                    <noscript><a href="https://track.adform.net/C/?bn=85041437;C=0" target="_blank"><img src="https://track.adform.net/adfserve/?bn=85041437;srctype=4;ord=[timestamp]" border="0" alt=""></a></noscript>
+                  </div>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="strategy-intro">
+                <p>One campaign can extend across multiple placements while preserving one coherent brand experience. These examples show how Loop Digital builds visibility, repetition and recognition across premium inventory without losing context, hierarchy or creative consistency.</p>
+              </div>
+
+              <div class="insights-grid">
+                <div class="insight-card">
+                  <div class="mini-kicker">Display</div>
+                  <h4>Presence</h4>
+                  <p>Consistent presence across premium publisher environments helps the brand stay visible and recognizable throughout the experience.</p>
+                </div>
+                <div class="insight-card">
+                  <div class="mini-kicker">Rich Media</div>
+                  <h4>Attention + Interaction</h4>
+                  <p>High-impact interactive formats create stronger attention moments and invite audiences to engage beyond the impression.</p>
+                </div>
+                <div class="insight-card">
+                  <div class="mini-kicker">Dynamic Ads</div>
+                  <h4>Real-time relevance</h4>
+                  <p>Creative can adapt to audience, context and moment, making each impression more relevant while preserving one consistent brand idea.</p>
+                </div>
+              </div>
+            </article>
+
+            <aside class="sidebar">
+              <div class="sidebar-placement">
+                <div class="placement-label">Half Page · 300 × 600</div>
+                <div class="ad-shell soft-outline halfpage-slot">
+                  <script src="https://track.adform.net/adfscript/?bn=85041436"></script>
+                  <noscript><a href="https://track.adform.net/C/?bn=85041436;C=0" target="_blank"><img src="https://track.adform.net/adfserve/?bn=85041436;srctype=4;ord=[timestamp]" border="0" alt=""></a></noscript>
+                </div>
+              </div>
+
+              <div class="campaign-story">
+                <h3>What This Showcase Demonstrates</h3>
+                <div class="story-item"><div class="num">01</div><div class="txt">DISPLAY — Consistent presence across premium publisher environments.</div></div>
+                <div class="story-item"><div class="num">02</div><div class="txt">RICH MEDIA — High-impact interaction designed to earn attention.</div></div>
+                <div class="story-item"><div class="num">03</div><div class="txt">DYNAMIC ADS — Real-time relevance shaped by audience, context and moment.</div></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <div class="publisher-footer">
+          <span>Loop Digital · Simulated Publisher</span>
+          <span>Display · Rich Media · Dynamic Ads</span>
+        </div>
+      </section>
+    </section>
+    </main>
+
+    <footer class="global-footer" style="justify-content:space-between;"><span>Loop Digital — Premium media for brands that want to be remembered.</span><span style="color:var(--lime);">Where your brand appears matters.</span></footer>
+  </div>
+
+  <script>
+    if (window.self === window.top) document.documentElement.classList.add('standalone');
+
+    (function(){
+      function normalizeBillboard(){
+        var slot = document.querySelector('.billboard-slot');
+        if(!slot) return;
+        slot.style.width = '970px';
+        slot.style.height = '250px';
+        slot.style.maxWidth = '970px';
+        slot.style.overflow = 'visible';
+
+        var nodes = slot.querySelectorAll('iframe, img, canvas, video, .adform-adbox, .adform-adnotice');
+        nodes.forEach(function(node){
+          node.style.setProperty('width','970px','important');
+          node.style.setProperty('height','250px','important');
+          node.style.setProperty('max-width','none','important');
+          node.style.setProperty('max-height','none','important');
+          node.style.setProperty('overflow','visible','important');
+          node.style.setProperty('transform','none','important');
+        });
+      }
+
+      window.addEventListener('load', function(){
+        [100,300,700,1200,2000,3500].forEach(function(ms){setTimeout(normalizeBillboard, ms);});
+      });
+
+      new MutationObserver(normalizeBillboard).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['style','class']});
+    })();
+  </script>
+</body>
+</html>

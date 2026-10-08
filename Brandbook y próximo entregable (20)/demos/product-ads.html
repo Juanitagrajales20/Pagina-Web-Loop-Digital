@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loop Digital — Campaign Showcase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08090A;--panel:#f1efe9;--panel2:#e9e6df;--line:#d7d2ca;--text:#0d0e0e;--body:#403f3b;--lime:#E8FF52;--purple:#9B4DFF;--safe:clamp(40px,4.5vw,64px)}
+*{box-sizing:border-box;margin:0;padding:0}html,body{background:var(--bg);color:#fff;font-family:'Archivo',sans-serif}body{min-height:100vh;overflow-x:hidden}.shell{min-height:100vh;background:var(--bg)}
+.topbar{position:sticky;top:0;z-index:1000;min-height:86px;padding:18px 28px;display:grid;grid-template-columns:1fr 1.4fr 1fr;align-items:center;gap:20px;background:rgba(8,9,10,.985);border-bottom:1px solid #242723}.logo{font-weight:900;font-size:32px;line-height:.72;letter-spacing:-2px}.showcase-title{justify-self:center;font:700 12px/1 'JetBrains Mono',monospace;letter-spacing:4px;text-transform:uppercase;white-space:nowrap}.devices{justify-self:end;display:flex;gap:24px;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:2px;text-transform:uppercase;color:#9C9A95}.devices span:first-child{color:#fff;padding-bottom:8px;border-bottom:1px solid #fff}
+.page-wrap{width:min(1180px,calc(100% - clamp(64px,7vw,120px)));margin:clamp(32px,4vw,48px) auto clamp(48px,6vw,72px)}.context-label{font:700 10px/1 'JetBrains Mono',monospace;color:var(--lime);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px}.browser{border:1px solid #242723;background:#0E0F10;overflow:visible}.browser-chrome{height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;background:#0E0F10;border-bottom:1px solid #242723}.dot{width:10px;height:10px;border-radius:50%;background:#424742}.url{margin-left:12px;flex:1;height:25px;border:1px solid #2E322D;background:#08090A;color:#5d625d;padding:6px 12px;font:10px/1 'JetBrains Mono',monospace;letter-spacing:2px}.publisher{background:var(--panel);color:var(--text);overflow:visible}
+.hero{padding:clamp(40px,4.5vw,56px) var(--safe) clamp(28px,3.5vw,40px);border-bottom:1px solid var(--line)}.hero h1{font-size:clamp(38px,4vw,48px);line-height:.93;letter-spacing:-2.4px;text-transform:uppercase;font-weight:900;white-space:nowrap}.hero p{margin-top:18px;max-width:830px;font-size:14px;line-height:1.62;color:#373632}.newsnav{display:flex;gap:34px;padding:18px var(--safe);border-bottom:1px solid var(--line);font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:3px;text-transform:uppercase;color:#6b685f;white-space:nowrap;overflow:hidden}.newsnav span:first-child{color:#111;padding-bottom:8px;border-bottom:2px solid #111}
+.kicker{font:700 9.5px/1 'JetBrains Mono',monospace;color:var(--purple);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}h2,h3{font-size:30px;line-height:1.04;letter-spacing:-1px;text-transform:uppercase}.ad-label{font:700 9.5px/1 'JetBrains Mono',monospace;color:#8c8983;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:14px}
+.billboard-section{padding:clamp(44px,5vw,64px) var(--safe) clamp(48px,5vw,64px);border-bottom:1px solid var(--line)}.billboard-intro{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:48px;align-items:end;margin-bottom:36px}.billboard-intro h2{max-width:690px}.billboard-intro p{max-width:450px;font-size:14px;line-height:1.62;color:#4f4b45}.billboard-stage{display:flex;justify-content:center;align-items:center;padding:clamp(28px,3vw,40px);background:#e8e5de;border:1px solid var(--line);overflow:hidden}.ad-970x250{width:970px;height:250px;position:relative;overflow:visible;flex:0 0 auto}
+.content{padding:clamp(40px,4.5vw,56px) var(--safe) clamp(48px,5vw,64px)}.editorial-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:clamp(48px,5vw,64px);align-items:start}.story h2{max-width:690px;margin-bottom:15px}.story p{max-width:62ch;font-size:14px;line-height:1.62;color:var(--body)}.medium-zone{margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}.medium-center{display:flex;justify-content:center;padding:8px 0 4px}.ad-300x250{width:300px;height:250px;position:relative;overflow:visible}
+.side-rail{border-left:1px solid var(--line);padding-left:clamp(32px,3.5vw,48px)}.side-copy{max-width:248px}.side-copy h3{font-size:24px;margin-bottom:12px}.side-copy p{font-size:13px;line-height:1.58;color:#55514a}.side-placement{margin-top:32px}.ad-300x600{width:300px;height:600px;position:relative;overflow:visible;margin:0 auto}
+.context-section{margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}.context-section h3{margin-bottom:10px}.context-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:18px}.context-point{border-top:1px solid var(--line);padding-top:12px}.context-point strong{display:block;font-size:17px;text-transform:uppercase;margin-bottom:5px}.context-point span{display:block;font-size:13px;line-height:1.5;color:#5a554d}
+.format-strip{margin-top:32px;padding-top:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;border-top:1px solid var(--line)}.format-card{border-top:1px solid var(--line);padding-top:14px}.format-card .mini{font:700 9.5px/1 'JetBrains Mono',monospace;color:#8c8983;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:8px}.format-card h4{font-size:17px;line-height:1.18;text-transform:uppercase;margin-bottom:6px}.format-card p{font-size:12.5px;line-height:1.48;color:#55514a;max-width:24ch}
+.impact-section{margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}.impact-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:20px}.impact-card{border:1px solid var(--line);padding:16px 14px;min-height:112px}.impact-card strong{display:block;color:var(--purple);font-size:15px;text-transform:uppercase;margin-bottom:8px}.impact-card span{display:block;font-size:12px;line-height:1.45;color:#56514b}
+.strategy-band{margin-top:28px;background:#0d0f0f;color:#fff;padding:28px 30px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(260px,.95fr);gap:32px;align-items:center}.strategy-band .kicker{color:var(--purple)}.strategy-band h3{color:var(--lime)}.strategy-band p{justify-self:end;max-width:38ch;font-size:13px;line-height:1.58;color:#b8bab6}.experience-block{margin-top:24px;padding:28px 30px;background:var(--panel2);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(260px,.95fr);gap:32px;align-items:start}.experience-block h3{margin-bottom:10px}.experience-block p{max-width:46ch;font-size:13px;line-height:1.58;color:#4f4b45}.experience-list{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}.experience-item{border-top:1px solid var(--line);padding-top:10px}.experience-item strong{display:block;font-size:15px;text-transform:uppercase;margin-bottom:4px}.experience-item span{display:block;font-size:12px;line-height:1.45;color:#5a554d}
+.adform-adbox,.adform-adnotice,.adform-adbox-floated,.adform-adbox-expanded{overflow:visible!important;max-width:none!important;max-height:none!important}.adform-adbox-floated,.adform-adbox-expanded,.adform-adbox-floated.expanded{z-index:2147483000!important;pointer-events:auto!important}
+.publisher-footer{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px var(--safe);border-top:1px solid var(--line);background:var(--panel);color:#6c6a64;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:2px;text-transform:uppercase}.global-footer{border-top:1px solid #242723;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:24px;background:#08090A;font:700 9px/1 'JetBrains Mono',monospace;letter-spacing:2px;text-transform:uppercase}.global-footer span:last-child{color:var(--lime)}html:not(.standalone) .topbar{display:none}html:not(.standalone) .global-footer{display:none}html.standalone .topbar{display:grid}
+@media(max-width:1100px){.impact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.impact-card:last-child{grid-column:1/-1}}
+@media(max-width:980px){:root{--safe:clamp(24px,5vw,36px)}.topbar{height:auto;grid-template-columns:1fr;gap:14px;padding:18px 20px}.logo,.showcase-title,.devices{justify-self:start}.showcase-title{white-space:normal}.page-wrap{width:calc(100% - 32px);margin:24px auto 40px}.hero h1{font-size:40px;white-space:normal}.billboard-intro,.editorial-grid,.context-points,.format-strip,.impact-grid,.strategy-band,.experience-block,.experience-list{grid-template-columns:1fr}.side-rail{border-left:0;border-top:1px solid var(--line);padding:28px 0 0}.side-copy{max-width:none}.strategy-band p{justify-self:start}.impact-card:last-child{grid-column:auto}.publisher-footer,.global-footer{flex-direction:column;align-items:flex-start}}
+@media(max-width:640px){.page-wrap{width:calc(100% - 24px)}.hero h1{font-size:clamp(34px,10vw,42px)}}
+
+/* Loop Digital type scale — homogeneous across showcases */
+:root{--t-hero:52px;--t-title:32px;--t-sub:22px;--t-card:16px;--t-body:15px;--t-small:13.5px;--t-kicker:10px}
+.hero h1{font-size:min(var(--t-hero), 4vw) !important;line-height:.94 !important;letter-spacing:-0.045em !important;white-space:nowrap !important;max-width:none !important}
+.hero p{font-size:var(--t-body) !important;line-height:1.65 !important;margin-top:20px !important}
+.kicker,.context-label,.ad-label,.placement-label,.format-card .mini,.story-card .eyebrow{font-size:var(--t-kicker) !important;letter-spacing:0.28em !important;line-height:1 !important;margin-bottom:14px !important}
+.newsnav,.devices,.publisher-footer{font-size:10px !important}
+h2,h3,.editorial h2,.section-head h3{font-size:var(--t-title) !important;line-height:1.02 !important;letter-spacing:-0.035em !important}
+.portrait-copy h3,.smart h3{font-size:var(--t-sub) !important;line-height:1.08 !important;margin-bottom:12px !important}
+.point strong,.portrait-points strong,.format-card h4,.impact-grid strong,.smart-grid strong,.note h4,.story-card h4{font-size:var(--t-card) !important;line-height:1.2 !important;margin-bottom:8px !important}
+.story-head p,.section-head-row p,.section-head p,.editorial-copy p{font-size:var(--t-body) !important;line-height:1.65 !important}
+.point span,.portrait-copy p,.portrait-points p,.format-card p,.impact-grid span,.smart-grid span,.strategy p,.smart-head p,.note p,.story-card p{font-size:var(--t-small) !important;line-height:1.55 !important}
+@media (max-width:900px){:root{--t-hero:40px;--t-title:26px;--t-sub:20px}}
+
+/* Loop Digital showcase frame — standard */
+.logo{justify-self:start;display:flex !important;flex-direction:column !important;font-family:'Archivo',sans-serif !important;font-weight:900 !important;font-variation-settings:'wdth' 125;font-size:32px !important;letter-spacing:-0.04em !important;line-height:0.8 !important;color:#EDEFEA !important;text-transform:uppercase}.logo span{display:block}.logo span:last-child{font-size:0.705em;letter-spacing:-0.032em}
+.topbar{display:grid !important;position:sticky;top:0;z-index:1000;min-height:86px;padding:18px 28px;grid-template-columns:1fr 1.6fr 1fr;gap:20px;align-items:center;background:rgba(8,9,10,.985);border-bottom:1px solid #242723}
+.showcase-title{justify-self:center;text-align:center;font:700 12px/1 'JetBrains Mono',monospace !important;letter-spacing:0.32em !important;text-transform:uppercase;color:#EDEFEA;white-space:nowrap}
+.close{justify-self:end;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;cursor:pointer;background:transparent;border:1px solid #2E322D;border-radius:28px;padding:14px 22px;font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:0.2em;text-transform:uppercase;color:#EDEFEA;transition:border-color .2s,background .2s}
+.close:hover{border-color:#9B4DFF;background:#9B4DFF;color:#FFFFFF}
+.showcase-meta{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:18px}
+.showcase-meta .context-label{margin:0 !important;color:#E8FF52 !important;font:700 10px/1 'JetBrains Mono',monospace !important;letter-spacing:0.28em !important;text-transform:uppercase}
+.devices{margin-left:auto;display:flex;gap:24px;font:700 10px/1 'JetBrains Mono',monospace !important;letter-spacing:0.2em;text-transform:uppercase;color:#9C9A95;white-space:nowrap}
+.devices span:first-child{color:#FFFFFF;padding-bottom:8px;border-bottom:1px solid #FFFFFF}
+.browser{border:1px solid #242723;background:#0E0F10}
+.browser-chrome{height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;background:#0E0F10;border-bottom:1px solid #242723}
+.global-footer{display:flex !important;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:56px;padding:22px 28px;border-top:1px solid #242723;background:#08090A;color:#EDEFEA;font:700 9px/1.4 'JetBrains Mono',monospace;letter-spacing:0.2em;text-transform:uppercase}
+.global-footer span:last-child{color:#E8FF52}
+@media (max-width:900px){.topbar{grid-template-columns:1fr auto}.showcase-title{display:none}.showcase-meta{flex-direction:column;align-items:flex-start}.devices{margin-left:0}}
+
+/* Loop Digital — wide ads scale to fit, never scroll */
+.hero-stage,.leaderboard-wrap,.hero-stage-inner,.billboard-stage,.leader-stage,.stage-large,.stage-neutral{overflow:hidden !important}
+.ld-fit{transform-origin:top left}
+
+/* Loop Digital — standard closing block (all text black) */
+.ld-close{padding:72px var(--safe,64px) 80px;color:#111;display:grid;gap:64px;border-top:1px solid var(--line,#d8d4cc)}
+.ld-close *{color:#111}
+.ld-block{display:grid;gap:32px;border-top:0;padding-top:0}
+.ld-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:48px;align-items:end}
+.ld-close .kicker{display:flex;align-items:center;gap:10px;color:#111 !important;font-family:'JetBrains Mono',monospace;font-weight:700;text-transform:uppercase}
+.ld-close .kicker::before{content:'';width:7px;height:7px;background:#9B4DFF;flex:0 0 auto}
+.ld-close h3{margin:0;font-weight:900;text-transform:uppercase;color:#111 !important;text-wrap:balance}
+.ld-lead{margin:0;font-size:var(--t-body,15px);line-height:1.65;color:#111;max-width:46ch;text-wrap:pretty}
+.ld-roles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid #111}
+.ld-role{padding:24px 28px 8px 0;display:flex;flex-direction:column;gap:10px}
+.ld-role + .ld-role{padding-left:28px;border-left:1px solid rgba(17,17,17,.18)}
+.ld-tag{align-self:flex-start;white-space:nowrap;font:700 10px/1.2 'JetBrains Mono',monospace;letter-spacing:0.28em;text-transform:uppercase;padding:7px 10px;border:1px solid #111}
+.ld-name{font-weight:900;font-size:var(--t-sub,22px);line-height:1.05;text-transform:uppercase;letter-spacing:-0.02em}
+.ld-close p:not(.ld-lead){margin:0;font-size:var(--t-small,13.5px) !important;line-height:1.55 !important;color:#111 !important;text-wrap:pretty}
+.ld-outcomes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid #111}
+.ld-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #111}
+.ld-outcomes > div,.ld-steps > div{padding:22px 22px 6px 0;display:flex;flex-direction:column;gap:8px}
+.ld-outcomes > div + div,.ld-steps > div + div{padding-left:22px;border-left:1px solid rgba(17,17,17,.18)}
+.ld-outcomes .ld-name,.ld-steps .ld-name{font-size:var(--t-card,16px)}
+.ld-num{font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:0.28em}
+.ld-sign{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:22px;border-top:1px solid #111;font:700 10px/1.4 'JetBrains Mono',monospace;letter-spacing:0.28em;text-transform:uppercase}
+@media (max-width:1000px){.ld-head{grid-template-columns:1fr;gap:16px}.ld-roles,.ld-steps{grid-template-columns:1fr 1fr}.ld-outcomes{grid-template-columns:1fr 1fr 1fr}.ld-role + .ld-role,.ld-outcomes > div + div,.ld-steps > div + div{border-left:0;padding-left:0}}
+
+/* Loop Digital — unified subtitles & body (reference: Top Story block) */
+.publisher h2,.publisher h3,.ld-close h3{font-family:'Archivo',sans-serif !important;font-weight:900 !important;font-size:var(--t-title,32px) !important;line-height:1.02 !important;letter-spacing:-0.035em !important;text-transform:uppercase !important;color:#111 !important;text-wrap:balance}
+.publisher h4,.publisher strong,.ld-name{font-family:'Archivo',sans-serif !important;font-weight:900 !important;color:#111 !important}
+.publisher p,.publisher .story-head p,.publisher .section-head-row p,.ld-lead,.ld-close p:not(.ld-lead){font-family:'Archivo',sans-serif !important;font-weight:400 !important;font-size:var(--t-body,15px) !important;line-height:1.6 !important;color:#111 !important;text-wrap:pretty}
+.publisher span:not(.ld-num):not(.ld-tag):not(.dot){color:inherit}
+@media (max-width:900px){.publisher h2,.publisher h3,.ld-close h3{font-size:26px !important}}
+
+/* Loop Digital — stages never exceed page */
+.ad-card,.ad-frame,.medium-card,.live-card{min-width:0 !important;max-width:100%;overflow:hidden}
+.stage-large,.stage-neutral,.hero-stage,.leaderboard-wrap,.billboard-stage,.leader-stage{width:100% !important;max-width:100% !important;min-width:0 !important;box-sizing:border-box !important}
+.stage-center,.hero-stage-inner{width:100% !important;min-width:0 !important;max-width:100% !important;display:flex !important;flex-wrap:wrap;justify-content:center;gap:24px}
+.publisher,.publisher section,.publisher > div,.publisher [class*="grid"] > *{min-width:0 !important;max-width:100%}
+
+/* Loop Digital — card titles & secondary text unified */
+.publisher h4,.publisher strong{font-size:var(--t-card,16px) !important;line-height:1.2 !important;letter-spacing:-0.01em !important;text-transform:uppercase;margin:0 0 8px !important;display:block}
+.publisher p strong,.publisher li strong{display:inline;font-size:inherit !important;text-transform:none;margin:0 !important}
+.publisher [class*="card"] span:not(.ld-num):not(.ld-tag):not(.dot):not([class*="label"]),.publisher [class*="item"] span,.publisher [class*="point"] span,.publisher [class*="grid"] > div > span{font-family:'Archivo',sans-serif !important;font-size:var(--t-small,13.5px) !important;line-height:1.55 !important;font-weight:400 !important;color:#111 !important;letter-spacing:0 !important;text-transform:none !important}
+.publisher h2 + p,.publisher h3 + p,.publisher h2 + .support,.publisher h3 + .support{margin-top:14px}
+.publisher .kicker{margin-bottom:14px !important}
+
+/* Loop Digital — purple kickers & ad labels unified */
+.publisher .kicker,.publisher .ad-label,.publisher .top-story-label,.publisher .context-label{display:block;font-family:'JetBrains Mono',monospace !important;font-size:10px !important;font-weight:700 !important;letter-spacing:0.28em !important;line-height:1.2 !important;text-transform:uppercase !important;color:#111 !important;margin:0 0 14px !important;white-space:normal}
+.publisher .ad-label{margin-bottom:12px !important}
+
+.publisher .hero{display:block !important}
+
+/* Loop Digital — side text aligned with title top */
+.publisher .section-head,.publisher .story-head,.publisher .section-head-row,.publisher .smart-head,.publisher .strategy-row,.publisher .primary-copy,.publisher .strategy-band,.publisher .experience-block,.ld-head{align-items:start !important}
+.publisher :is(.section-head,.story-head,.section-head-row,.smart-head,.strategy-row,.primary-copy,.strategy-band,.experience-block,.ld-head) > :is(p,.support,.ld-lead){padding-top:0 !important;margin-top:14px !important}
+@media (min-width:1101px){.publisher :is(.section-head,.story-head,.section-head-row,.smart-head,.strategy-row,.primary-copy,.strategy-band,.experience-block,.ld-head) > :is(p,.support,.ld-lead){margin-top:4px !important}.publisher :is(.section-head,.primary-copy,.strategy-band,.experience-block,.ld-head):has(> div > .kicker) > :is(p,.support,.ld-lead){margin-top:28px !important}}
+.publisher .section-head > div > .kicker + h2,.publisher .section-head > div > .kicker + h3{margin-top:0 !important}
+
+/* ads never paint over the sticky header */
+.publisher{position:relative;z-index:0;isolation:isolate}
+.topbar{z-index:2147483600 !important}
+
+.editorial-grid{align-items:stretch !important}
+.editorial-grid > .story{display:flex;flex-direction:column}
+.editorial-grid > .story > .context-section{margin-top:auto !important;margin-bottom:auto}
+.editorial-grid > .story > .medium-zone{margin-bottom:32px}
+@media(max-width:900px){.ld-quote{grid-template-columns:1fr !important}.ld-edit{grid-template-columns:1fr !important;gap:24px}.ld-cta{grid-template-columns:1fr !important}}
+html,body{overflow-x:clip !important}
+/* no scrollbars next to ads */
+body *:not(html):not(body){scrollbar-width:none}
+body *::-webkit-scrollbar{display:none !important;width:0 !important;height:0 !important}
+.placement-label{margin:0 0 12px 0 !important}
+.soft-outline,.ad-shell{outline:0 !important;box-shadow:none !important;background:transparent !important;border-color:transparent !important}
+
+/* ld standard publisher width */
+.page-wrap{width:min(1180px,calc(100% - 64px)) !important;margin-left:auto !important;margin-right:auto !important}
+@media(max-width:760px){.page-wrap{width:calc(100% - 24px) !important}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+  <div class="logo"><span>LOOP</span><span>DIGITAL</span></div>
+  <div class="showcase-title">Rich Media — Product Ads</div>
+  <button type="button" class="close" onclick="loopCloseShowcase()">× Cerrar</button>
+</header>
+<main class="page-wrap">
+<div class="showcase-meta">
+  <div class="context-label">Desktop — Loop Digital Simulated Publisher</div>
+  <div class="devices"><span>Desktop</span><span>iPad</span><span>Mobile</span></div>
+</div>
+<section class="browser">
+<div class="browser-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="url">www.publisher-demo.example/editorial</div></div>
+<div class="publisher">
+<section class="hero"><h1>Loop Digital Campaign Showcase</h1><p>This simulated premium publisher shows how media placements live in context. Explore Display, Rich Media and Dynamic Ads — and see how premium inventory becomes presence, attention and real-time relevance.</p></section>
+<nav class="newsnav"><span>News</span><span>Business</span><span>Sport</span><span>Culture</span><span>Lifestyle</span><span>Tech</span></nav>
+<section class="ld-edit" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:36px 12px;border-bottom:1px solid rgba(17,17,17,.12)"><article style="display:flex;flex-direction:column;gap:14px;padding:0 28px;border-left:1px solid rgba(17,17,17,.14)"><span style="font-family:'JetBrains Mono',monospace !important;font-size:10px !important;font-weight:700 !important;letter-spacing:.28em !important;text-transform:uppercase !important;color:#111 !important">Business · 4 min read</span><h4 style="font-family:'Archivo',sans-serif !important;font-weight:900 !important;font-size:16px !important;line-height:1.2 !important;text-transform:uppercase !important;color:#111 !important;margin:0 !important">The attention economy is changing — and context is winning</h4><p style="font-family:'Archivo',sans-serif !important;font-size:13.5px !important;line-height:1.55 !important;color:#111 !important;margin:0 !important">Brands are rethinking where visibility actually builds value, and why premium environments matter more than volume.</p></article><article style="display:flex;flex-direction:column;gap:14px;padding:0 28px;border-left:1px solid rgba(17,17,17,.14)"><span style="font-family:'JetBrains Mono',monospace !important;font-size:10px !important;font-weight:700 !important;letter-spacing:.28em !important;text-transform:uppercase !important;color:#111 !important">Culture · 3 min read</span><h4 style="font-family:'Archivo',sans-serif !important;font-weight:900 !important;font-size:16px !important;line-height:1.2 !important;text-transform:uppercase !important;color:#111 !important;margin:0 !important">Why the environment shapes how a brand is remembered</h4><p style="font-family:'Archivo',sans-serif !important;font-size:13.5px !important;line-height:1.55 !important;color:#111 !important;margin:0 !important">Perception starts long before the click. The places a brand appears quietly define what it stands for.</p></article><article style="display:flex;flex-direction:column;gap:14px;padding:0 28px;border-left:1px solid rgba(17,17,17,.14)"><span style="font-family:'JetBrains Mono',monospace !important;font-size:10px !important;font-weight:700 !important;letter-spacing:.28em !important;text-transform:uppercase !important;color:#111 !important">Tech · 5 min read</span><h4 style="font-family:'Archivo',sans-serif !important;font-weight:900 !important;font-size:16px !important;line-height:1.2 !important;text-transform:uppercase !important;color:#111 !important;margin:0 !important">Precision over volume: the new rules of reach</h4><p style="font-family:'Archivo',sans-serif !important;font-size:13.5px !important;line-height:1.55 !important;color:#111 !important;margin:0 !important">Data, signals and premium selection are redefining how brands connect with the audiences that matter most.</p></article></section>
+<section class="billboard-section">
+<div class="billboard-intro"><div><div class="kicker">High-Impact Display in Context</div><h2>Large-scale presence designed to command attention</h2></div><p>The placement creates a strong visual moment inside the publisher journey, giving the brand scale while preserving the surrounding editorial experience.</p></div>
+<div class="ad-label">Advertising · 970 × 250</div>
+<div class="billboard-stage"><div class="ad-970x250"><script src="https://track.adform.net/adfscript/?bn=81731067"></script><noscript><a href="https://track.adform.net/C/?bn=81731067;C=0" target="_blank"><img src="https://track.adform.net/adfserve/?bn=81731067;srctype=4;ord=[timestamp]" border="0" alt=""></a></noscript></div></div>
+</section>
+<div class="content">
+<div class="editorial-grid">
+<article class="story"><div class="kicker">Top Story</div><h2>See how premium media lives inside the publisher experience</h2><p>Not every media placement carries the same value. The environment shapes the meaning of visibility — and how the brand is perceived.</p>
+<section class="medium-zone"><div class="ad-label" style="width:300px;margin-left:auto;margin-right:auto;">Advertising · 300 × 250</div><div class="medium-center"><div class="ad-300x250"><script src="https://track.adform.net/adfscript/?bn=81731068"></script><noscript><a href="https://track.adform.net/C/?bn=81731068;C=0" target="_blank"><img src="https://track.adform.net/adfserve/?bn=81731068;srctype=4;ord=[timestamp]" border="0" alt=""></a></noscript></div></div></section>
+<section class="context-section"><div class="kicker">Why Context Matters</div><h3>Where your brand appears matters</h3><div class="context-points"><div class="context-point"><strong>Attention</strong><span>Be seen without overwhelming the experience.</span></div><div class="context-point"><strong>Context</strong><span>Premium environments strengthen perception.</span></div><div class="context-point"><strong>Relevance</strong><span>Right audience. Right moment. Right environment.</span></div></div></section>
+</article>
+<aside class="side-rail"><div class="side-copy"><div class="kicker">Desktop Side Rail</div><h3>Persistent presence beside the reading journey</h3><p>A tall placement keeps the brand visible while editorial content continues alongside it.</p></div><div class="side-placement"><div class="ad-label">Advertising · 300 × 600</div><div class="ad-300x600"><script src="https://track.adform.net/adfscript/?bn=81731066"></script><noscript><a href="https://track.adform.net/C/?bn=81731066;C=0" target="_blank"><img src="https://track.adform.net/adfserve/?bn=81731066;srctype=4;ord=[timestamp]" border="0" alt=""></a></noscript></div></div></aside>
+</div>
+
+</div>
+<section class="ld-quote" style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px;align-items:center;padding:72px var(--safe,64px);border-top:1px solid rgba(17,17,17,.12)"><div style="display:flex;flex-direction:column;gap:18px"><span style="display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace !important;font-size:10px !important;font-weight:700 !important;letter-spacing:.28em !important;text-transform:uppercase !important;color:#111 !important"><span style="width:7px;height:7px;background:#9B4DFF;flex:none"></span>Editor’s note</span><blockquote style="margin:0;font-family:'Archivo',sans-serif !important;font-weight:900 !important;font-size:min(40px,3.6vw) !important;line-height:1 !important;letter-spacing:-.035em !important;text-transform:uppercase !important;color:#111 !important;text-wrap:balance">Brands don’t need to be everywhere — they need to be where their presence matters.</blockquote></div><div style="display:flex;flex-direction:column;gap:14px;padding-left:32px;border-left:1px solid rgba(17,17,17,.14)"><span style="font-family:'JetBrains Mono',monospace !important;font-size:10px !important;font-weight:700 !important;letter-spacing:.28em !important;text-transform:uppercase !important;color:#111 !important">What we do</span><p style="font-family:'Archivo',sans-serif !important;font-size:15px !important;line-height:1.6 !important;color:#111 !important;margin:0 !important">We build brand presence that is intentional, distinctive and meaningful across the media ecosystem.</p><span style="font-family:'JetBrains Mono',monospace !important;font-size:10px !important;font-weight:700 !important;letter-spacing:.28em !important;text-transform:uppercase !important;color:#111 !important">Premium · Relevant · Strategic · Memorable</span></div></section>
+<section class="ld-close">
+  <div class="ld-block">
+    <div class="ld-head">
+      <div><div class="kicker">01 — Media placements</div><h3>Every media placement has a purpose.</h3></div>
+      <p class="ld-lead">One ecosystem. Different roles. One connected brand experience.</p>
+    </div>
+    <div class="ld-roles">
+      <div class="ld-role"><span class="ld-tag">Display</span><div class="ld-name">Presence &amp; recognition</div><p>Stay visible across premium publishers and build recognition through consistent exposure.</p></div>
+      <div class="ld-role"><span class="ld-tag">Rich Media</span><div class="ld-name">Attention &amp; interaction</div><p>Use interactive, high-impact creative to turn attention into a more engaging brand experience.</p></div>
+      <div class="ld-role"><span class="ld-tag">Dynamic Ads</span><div class="ld-name">Real-time relevance</div><p>Animated creative that adapts to real-time data to deliver more relevant, high-impact messages.</p></div>
+    </div>
+  </div>
+  <div class="ld-block">
+    <div class="ld-head">
+      <div><div class="kicker">02 — Built for brand impact</div><h3>More than reach.</h3></div>
+      <p class="ld-lead">From visibility to relevance, from relevance to recognition, from recognition to memory, from memory to perception.</p>
+    </div>
+    <div class="ld-outcomes">
+      <div><span class="ld-num">01</span><div class="ld-name">Presence</div><p>Be where the brand needs to be seen.</p></div>
+      <div><span class="ld-num">02</span><div class="ld-name">Relevance</div><p>Connect with the audiences that truly matter.</p></div>
+      <div><span class="ld-num">03</span><div class="ld-name">Recognition</div><p>Turn relevance into affinity.</p></div>
+      <div><span class="ld-num">04</span><div class="ld-name">Recall</div><p>Build a brand that stays top of mind among the audiences that matter most.</p></div>
+      <div><span class="ld-num">05</span><div class="ld-name">Perception</div><p>Strengthen how the brand is perceived.</p></div>
+    </div>
+  </div>
+  <div class="ld-block">
+    <div class="ld-head">
+      <div><div class="kicker">03 — How we do it</div><h3>Strategy before media inventory.</h3></div>
+      <p class="ld-lead">Brand first. Strategy led. Intentional by design. Every media strategy starts with the brand, its market and its objectives.</p>
+    </div>
+    <div class="ld-steps">
+      <div><span class="ld-num">01</span><div class="ld-name">Plan</div><p>How the brand should show up. We define the perception the brand needs and the kind of presence it needs to build.</p></div>
+      <div><span class="ld-num">02</span><div class="ld-name">Curate</div><p>What deserves to be part of the plan. We select the environments, publishers and formats that genuinely support the brand strategy.</p></div>
+      <div><span class="ld-num">03</span><div class="ld-name">Connect</div><p>One omnichannel brand experience. We bring the selected touchpoints together so every part of the plan works as an ecosystem.</p></div>
+      <div><span class="ld-num">04</span><div class="ld-name">Amplify</div><p>A smarter brand presence over time. We learn from how the plan evolves in market and improve it to strengthen brand presence.</p></div>
+    </div>
+  </div>
+  <div class="ld-sign"><span>Premium media for brands that want to be remembered.</span></div>
+</section>
+<section class="ld-cta" style="background:#08090A;padding:56px var(--safe,64px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center"><div style="display:flex;flex-direction:column;gap:14px"><span style="font-family:'JetBrains Mono',monospace !important;font-size:10px !important;font-weight:700 !important;letter-spacing:.28em !important;text-transform:uppercase !important;color:#E8FF52 !important">Let’s talk</span><div style="font-family:'Archivo',sans-serif !important;font-weight:900 !important;font-size:32px !important;line-height:1.02 !important;letter-spacing:-.035em !important;text-transform:uppercase !important;color:#EDEFEA !important">Not every impression leaves an impression.</div><p style="font-family:'Archivo',sans-serif !important;font-size:15px !important;line-height:1.6 !important;color:#C7C9C3 !important;margin:0 !important">Let’s build smarter brand presence across premium media environments.</p></div><button type="button" onclick="loopCloseShowcase()" style="cursor:pointer;border:0;background:#E8FF52;border-radius:999px;padding:16px 24px;font-family:'JetBrains Mono',monospace !important;font-size:11px !important;font-weight:700 !important;letter-spacing:.2em !important;text-transform:uppercase !important;color:#080808 !important;white-space:nowrap">Let’s talk →</button></section>
+<div class="publisher-footer"><span>Simulated Publisher</span><span>Display · Rich Media · Dynamic Ads</span></div>
+</div></section></main>
+<footer class="global-footer"><span>Premium media for brands that want to be remembered.</span><span>Where your brand appears matters.</span></footer>
+</div>
+<script>if(window.self===window.top){document.documentElement.classList.add('standalone');}</script>
+<script>
+function loopCloseShowcase(){ if (window.self !== window.top) { try { parent.postMessage('loop-close-demo', '*'); } catch (e) {} return; } window.close(); setTimeout(function(){ if (!window.closed) history.back(); }, 150); }
+</script>
+<script>
+(function(){
+  var SEL='.leaderboard-anchor,.billboard-anchor,.ad-728,.ad-970,.ad-leaderboard,.ad-billboard,.ad-unit,.ad-1200x300,.ad-580x200,.ad-1200x250,.ad-970x250,.ad-970x90,.ad-728x90,.ad728x90,.ad1200x250,.ad970x250';
+  function reset(el){ el.style.transform=''; el.style.marginBottom=''; el.style.marginRight=''; el.style.width=el.dataset.ldW||''; el.style.height=el.dataset.ldH||''; }
+  function fit(){
+    document.querySelectorAll(SEL).forEach(function(el){
+      var host=el.parentElement; if(!host) return;
+      if(el.dataset.ldW===undefined){ el.dataset.ldW=el.style.width||''; el.dataset.ldH=el.style.height||''; }
+      reset(el);
+      var c=el.querySelector('.adform-adbox,.adform-adbox-expanded')||el;
+      var w=Math.max(el.offsetWidth,c.offsetWidth,c.scrollWidth,el.scrollWidth), h=Math.max(el.offsetHeight,c.offsetHeight,c.scrollHeight);
+      var avail=Infinity, n=host, stop=el.closest('.publisher')||document.body;
+      while(n && n!==document.body){ var cs=getComputedStyle(n); var a=n.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight); if(a>0 && a<avail) avail=a; if(n===stop) break; n=n.parentElement; }
+      if(w>avail && avail>0 && isFinite(avail)){
+        var s=avail/w;
+        el.style.width=w+'px'; el.style.height=h+'px';
+        el.style.transformOrigin='top left'; el.style.transform='scale('+s+')';
+        el.style.marginBottom=(h*s-h)+'px'; el.style.marginRight=(w*s-w)+'px';
+      }
+    });
+  }
+  window.addEventListener('resize',fit); window.addEventListener('load',fit); document.addEventListener('DOMContentLoaded',fit);
+  [600,1500,3000,5000,8000].forEach(function(t){ setTimeout(fit,t); });
+  if(window.MutationObserver){ var mo=new MutationObserver(function(){ clearTimeout(mo.t); mo.t=setTimeout(fit,200); }); document.addEventListener('DOMContentLoaded',function(){ document.querySelectorAll(SEL).forEach(function(el){ mo.observe(el,{childList:true,subtree:true}); }); }); }
+})();
+</script>
+<script>
+(function(){
+  function fix(){
+    var hdr=document.querySelector('.topbar,header'); if(!hdr) return;
+    var hh=hdr.getBoundingClientRect().height;
+    var ft=document.querySelector('.ld-global-footer,.global-footer,footer.site-footer');
+    var fh=(ft&&getComputedStyle(ft).position==='fixed')?ft.getBoundingClientRect().height:0;
+    document.querySelectorAll('body *').forEach(function(el){
+      if(el.closest('.topbar,header') || (ft&&ft.contains(el)) || /adform-adbox-fixed/.test(el.className)) return;
+      var cs=getComputedStyle(el); if(cs.position!=='fixed') return;
+      var r=el.getBoundingClientRect();
+      if(r.height<innerHeight*0.6 || r.width<innerWidth*0.9 || el.closest('.ad-slot,.halfpage,.expand-area,.sidebar-panel') || r.top>=hh-1) return;
+      el.style.setProperty('top',hh+'px','important');
+      el.style.setProperty('height','calc(100vh - '+(hh+fh)+'px)','important');
+      el.style.setProperty('max-height','calc(100vh - '+(hh+fh)+'px)','important');
+    });
+  }
+  new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['style','class']});
+  addEventListener('resize',fix); setInterval(fix,800);
+})();
+</script>
+<script>
+(function(){
+  function transparent(c){return !c||c==='transparent'||/rgba\([^)]*,\s*0\)$/.test(c);}
+  function boxed(el){var cs=getComputedStyle(el);if(!transparent(cs.backgroundColor)||cs.backgroundImage!=='none'&&!/gradient/.test(cs.backgroundImage)===false)return true;
+    var b=['Top','Right','Bottom','Left'].filter(function(k){return parseFloat(cs['border'+k+'Width'])>0&&cs['border'+k+'Style']!=='none';}).length;
+    return b>=3||(cs.outlineStyle!=='none'&&parseFloat(cs.outlineWidth)>0)||cs.boxShadow!=='none';}
+  function strip(el,pad){if(!el||el.dataset.ldStripped)return;el.dataset.ldStripped='1';
+    ['background','background-color','background-image','box-shadow','outline'].forEach(function(p){el.style.setProperty(p,p==='outline'?'0':'none','important');});
+    el.style.setProperty('border-color','transparent','important');if(pad){el.style.setProperty('padding','0','important');}}
+  function creative(root){var best=null,a=0;root.querySelectorAll('iframe,img,.adform-adbox,[class*="ad-"],[class^="ad"]').forEach(function(e){var r=e.getBoundingClientRect();if(r.width>=50&&r.height>=30&&r.width*r.height>a&&r.width<=root.getBoundingClientRect().width+1){a=r.width*r.height;best=r;}});return best||root.getBoundingClientRect();}
+  function run(){document.querySelectorAll('.publisher .ad-label, .ad-label, .placement-label').forEach(function(l){
+    var n=l.nextElementSibling;if(!n||!n.querySelector('script,iframe,img,.adform-adbox'))return;
+    var p=l.parentElement;if(p&&!p.classList.contains('publisher')&&boxed(p)&&p.getBoundingClientRect().height<900)strip(p,false);
+    var w=n,d=0;while(w&&d<4){if(boxed(w)&&!w.querySelector(':scope > script'))strip(w,true);if(w.children.length!==1)break;w=w.firstElementChild;d++;}
+    if(boxed(n))strip(n,true);
+    var r=creative(n);if(!r||r.width<50)return;var pr=p.getBoundingClientRect(),pcs=getComputedStyle(p);
+    var lr=l.getBoundingClientRect(),lcs=getComputedStyle(l);var left=r.left-lr.left+(parseFloat(lcs.marginLeft)||0);
+    l.style.setProperty('margin-left',Math.max(0,left)+'px','important');l.style.setProperty('width','max-content','important');l.style.setProperty('max-width','calc(100% - '+Math.max(0,left)+'px)','important');l.style.setProperty('margin-right','0','important');
+    l.style.setProperty('white-space','nowrap','important');l.style.setProperty('text-align','left','important');
+    l.style.setProperty('align-self','flex-start','important');l.style.setProperty('justify-self','start','important');
+  });}
+  var t=0,iv=setInterval(function(){run();if(++t>25)clearInterval(iv);},600);addEventListener('resize',function(){setTimeout(run,100);});addEventListener('load',run);
+})();
+</script>
+<script>
+(function(){
+  function purple(c){var m=c.match(/\d+(\.\d+)?/g);if(!m)return false;var r=+m[0],g=+m[1],b=+m[2];return b>150&&r>100&&g<120&&b-g>80;}
+  function run(){var root=document.querySelector('.publisher')||document.body;
+    root.querySelectorAll('*').forEach(function(el){
+      if(el.closest('iframe,.adform-adbox,[class*="adform"]')||el.tagName==='IFRAME')return;
+      var cs=getComputedStyle(el);if(!purple(cs.color))return;
+      var dark=el.closest('.ld-feature,[aria-hidden="true"]');
+      el.style.setProperty('color',dark?'#EDEFEA':'#111','important');
+    });}
+  var t=0,iv=setInterval(function(){run();if(++t>10)clearInterval(iv);},700);addEventListener('load',run);run();
+})();
+</script>
+<script>
+(function(){function run(){document.querySelectorAll('iframe,.adform-adbox,[class*="ad-"],.ad-slot').forEach(function(a){var el=a.parentElement,d=0;while(el&&el!==document.body&&d<8){var cs=getComputedStyle(el);if(/auto|scroll/.test(cs.overflow+cs.overflowX+cs.overflowY)){el.style.setProperty('overflow','hidden','important');}el=el.parentElement;d++;}});}
+var t=0,iv=setInterval(function(){run();if(++t>20)clearInterval(iv);},700);addEventListener('load',run);})();
+</script>
+<script>
+(function(){function empty(box){var ifs=box.querySelectorAll('iframe');if(!ifs.length)return !box.querySelector('img,video,canvas');for(var i=0;i<ifs.length;i++){var d;try{d=ifs[i].contentDocument}catch(e){return false}if(!d||!d.body)return false;var vis=[].some.call(d.body.querySelectorAll('*'),function(e){var r=e.getBoundingClientRect();return r.width>10&&r.height>10&&!/^(SCRIPT|STYLE)$/.test(e.tagName)});if(vis)return false;}return true;}
+function run(){document.querySelectorAll('body > .adform-adbox-fixed,body > [class*="adform-adbox-fixed"]').forEach(function(b){['top','height','max-height'].forEach(function(p){if(b.style.getPropertyPriority(p)==='important'&&/calc\(100vh|86px|px/.test(b.style.getPropertyValue(p))&&b.dataset.ldOrig!=='1'){}});
+  if(empty(b)){b.style.setProperty('pointer-events','none','important');b.style.setProperty('visibility','hidden','important');}else{b.style.removeProperty('visibility');b.style.removeProperty('pointer-events');}});}
+var t=0,iv=setInterval(function(){run();if(++t>40)clearInterval(iv);},500);addEventListener('load',run);})();
+</script>
+<script>
+(function(){
+var M="font:700 10px/1 'JetBrains Mono',monospace;letter-spacing:.28em;text-transform:uppercase";
+var WINK='<svg viewBox="0 0 186.8 171.7" fill="none" style="display:block;width:100%;height:auto"><ellipse cx="46.5" cy="40" rx="34.75" ry="28.25" stroke="#9B4DFF" stroke-width="23.5"></ellipse><rect x="93.8" y="28.25" width="93" height="23.5" rx="10" fill="#9B4DFF"></rect><svg x="1.4" y="114.7" width="184" height="57" viewBox="0 0 100 31" overflow="visible"><path d="M6 5 A 59.4 59.4 0 0 0 94 5" stroke="#E8FF52" stroke-width="7.2" stroke-linecap="round"></path></svg></svg>';
+var COPY=[["Still here","Presence isn\u2019t repetition. It\u2019s staying with the reader, one scroll after another."],["You looked","That\u2019s the point. Put your brand where attention already lives."],["Seen. Remembered.","Premium placements that stay with people after the impression."]];
+var k=0;
+function tile(px){return '<div style="width:'+px+'px;height:'+px+'px;flex:none;border-radius:26%;background:#0B0B0B;box-shadow:0 0 0 1px #242723;display:flex;align-items:center;justify-content:center"><div style="width:'+Math.round(px*.47)+'px">'+WINK+'</div></div>';}
+function banner(w){var c=COPY[k++%COPY.length];var wide=w>=660;var W=wide?640:300,H=wide?320:250;
+ var head='<div style="display:flex;justify-content:space-between;gap:8px;'+M+';color:#9C9A95 !important"><span style="color:#9C9A95 !important">Ad · '+W+' × '+H+'</span><span style="color:#E8FF52 !important">● Live</span></div>';
+ var cta='<div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span style="background:#E8FF52;border-radius:999px;padding:10px 14px;'+M+';color:#080808 !important">Let\u2019s talk →</span><span style="'+M+';color:#9C9A95 !important">Premium media</span></div>';
+ var inner=wide?
+  '<div style="width:640px;max-width:100%;aspect-ratio:2/1;background:#080808;display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px;align-items:center;padding:28px 32px;box-sizing:border-box;overflow:hidden">'+tile(200)+'<div style="display:flex;flex-direction:column;justify-content:space-between;height:100%;min-width:0">'+head+'<div><div style="font:900 44px/.92 \'Archivo\',sans-serif;letter-spacing:-.04em;text-transform:uppercase;color:#EDEFEA !important">'+c[0]+'</div><div style="font:400 13.5px/1.5 \'Archivo\',sans-serif;color:#C7C9C3 !important;margin-top:12px;max-width:300px">'+c[1]+'</div></div>'+cta+'</div></div>'
+ :'<div style="width:300px;height:250px;background:#080808;display:flex;flex-direction:column;justify-content:space-between;padding:18px 20px;box-sizing:border-box;overflow:hidden">'+head+'<div style="display:flex;align-items:center;gap:16px">'+tile(84)+'<div style="font:900 26px/.94 \'Archivo\',sans-serif;letter-spacing:-.035em;text-transform:uppercase;color:#EDEFEA !important">'+c[0]+'</div></div>'+cta+'</div>';
+ var d=document.createElement('div');d.className='ld-fill';d.setAttribute('aria-hidden','true');
+ d.style.cssText='display:flex;flex-direction:column;gap:12px;margin-top:auto;padding-top:32px';
+ d.innerHTML='<div class="ad-label" style="margin:0 !important;font:700 10px/1 \'JetBrains Mono\',monospace !important;letter-spacing:.28em !important;text-transform:uppercase;color:#111 !important">Advertising · '+W+' × '+H+'</div>'+inner;return d;}
+function contentH(col){var top=col.getBoundingClientRect().top,b=top;[].forEach.call(col.childNodes,function(c){if(c.nodeType===1&&c.classList.contains('ld-fill'))return;var rg=document.createRange();rg.selectNodeContents(c);var r=c.nodeType===1?c.getBoundingClientRect():rg.getBoundingClientRect();if(r.height>0)b=Math.max(b,r.bottom+(c.nodeType===1?parseFloat(getComputedStyle(c).marginBottom||0):0));});return b-top;}
+function sideBySide(p){var cs=getComputedStyle(p);if(cs.display.indexOf('flex')>=0)return !/column/.test(cs.flexDirection);if(cs.display.indexOf('grid')>=0)return cs.gridTemplateColumns.trim().split(/\s+/).length>=2;return false;}
+function run(){var pub=document.querySelector('.publisher')||document.body;
+ pub.querySelectorAll('script[src*="adform"]').forEach(function(s){
+  var el=s.parentElement;while(el&&el!==pub){var p=el.parentElement;if(!p)break;var d=getComputedStyle(p).display;
+   if((d==='grid'||d==='flex')&&p.children.length>=2&&p.getBoundingClientRect().width>600&&sideBySide(p)){
+    var ar=el.getBoundingClientRect(),adH=ar.height;if(adH<380)break;
+    [].forEach.call(p.children,function(col){if(col===el||col.dataset.ldFilled||col.closest('.expand-area,.expand-zone')||col.classList.contains('expand-zone')||col.querySelector('script[src*="adform"]')||col.closest('.ld-close,header,footer,.topbar'))return;
+     if(col.classList.contains('ad-label')||!col.children.length)return;var r=col.getBoundingClientRect();if(r.width<300)return;if(!(r.top<ar.bottom&&r.bottom>ar.top))return;if(Math.abs(r.left-ar.left)<ar.width)return;var colH=Math.max(r.height,adH);var empty=colH-contentH(col);
+     if(empty<120)return;col.dataset.ldFilled='1';
+     col.style.setProperty('display','flex','important');col.style.setProperty('flex-direction','column','important');col.style.setProperty('align-self','stretch','important');
+     if(empty>=(r.width>=660?420:340)){col.style.setProperty('justify-content','flex-start','important');col.appendChild(banner(r.width));}
+     else col.style.setProperty('justify-content','center','important');});
+    break;}
+   el=p;}
+ });}
+setTimeout(run,3500);setTimeout(run,7000);addEventListener('load',function(){setTimeout(run,1500);});
+})();
+</script>
+<script>
+(function(){
+function cols(p){var cs=getComputedStyle(p);if(cs.display.indexOf('grid')>=0)return cs.gridTemplateColumns.trim().split(/\s+/).length>=2;if(cs.display.indexOf('flex')>=0)return !/column/.test(cs.flexDirection);return false;}
+function run(){document.querySelectorAll('.context,.context-section,section.context,div.context').forEach(function(ctx){
+  if(ctx.dataset.ldCenter)return;var col=ctx.parentElement,d=0;
+  while(col&&d<4){var p=col.parentElement;if(p&&cols(p)&&p.children.length>=2){
+     var r=col.getBoundingClientRect(),pr=p.getBoundingClientRect();if(pr.height-r.height>60||true){
+       p.style.setProperty('align-items','stretch','important');
+       col.style.setProperty('display','flex','important');col.style.setProperty('flex-direction','column','important');col.style.setProperty('align-self','stretch','important');
+       ctx.style.setProperty('margin-top','auto','important');ctx.style.setProperty('margin-bottom','auto','important');
+       var prev=ctx.previousElementSibling;if(prev)prev.style.setProperty('margin-bottom','32px','important');
+       ctx.dataset.ldCenter='1';}
+     return;}
+   col=p;d++;}
+});}
+setTimeout(run,300);setTimeout(run,2500);addEventListener('load',run);
+})();
+</script>
+</body></html>
