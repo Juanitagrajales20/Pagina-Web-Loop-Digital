@@ -96,7 +96,21 @@
 @keyframes ldTalkPulse { 0% { box-shadow:0 0 0 0 rgba(232,255,82,0.7); } 70% { box-shadow:0 0 0 14px rgba(232,255,82,0); } 100% { box-shadow:0 0 0 0 rgba(232,255,82,0); } }
 @keyframes ldTalkPulseV { 0% { box-shadow:0 0 0 0 rgba(155,77,255,0.75); } 70% { box-shadow:0 0 0 14px rgba(155,77,255,0); } 100% { box-shadow:0 0 0 0 rgba(155,77,255,0); } }
 @keyframes ldArrowNudge { 0%,100% { transform:translateX(0); } 50% { transform:translateX(6px); } }
-@keyframes ldProcLine{0%{transform:scaleX(0);opacity:1}22%{transform:scaleX(1);opacity:1}88%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}@keyframes ldProcNum{0%{background:#E8FF52}22%{background:#E8FF52}30%{background:transparent}100%{background:transparent}}@keyframes ldNodeDot{0%{transform:scale(1);background:#9B4DFF;box-shadow:0 0 0 0 rgba(232,255,82,0)}4%{transform:scale(1.9);background:#E8FF52;box-shadow:0 0 0 3px rgba(155,77,255,.6)}14%{transform:scale(1);background:#9B4DFF;box-shadow:0 0 0 0 rgba(232,255,82,0)}100%{transform:scale(1);background:#9B4DFF}}@keyframes ldNodeLblW{0%{background:transparent;color:#C7C9C3}3%{background:#E8FF52;color:#08090A}12%{background:#E8FF52;color:#08090A}18%{background:transparent;color:#C7C9C3}100%{background:transparent;color:#C7C9C3}}@keyframes ldNodeLine{0%{transform:scaleX(0)}10%{transform:scaleX(1)}85%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}@keyframes ldNumPulse{0%{background:#E8FF52;color:#08090A}26%{background:#E8FF52;color:#08090A}33%{background:transparent}100%{background:transparent}}</style>
+@keyframes ldProcLine{0%{transform:scaleX(0);opacity:1}22%{transform:scaleX(1);opacity:1}88%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}@keyframes ldProcNum{0%{background:#E8FF52}22%{background:#E8FF52}30%{background:transparent}100%{background:transparent}}@keyframes ldNodeDot{0%{transform:scale(1);background:#9B4DFF;box-shadow:0 0 0 0 rgba(232,255,82,0)}4%{transform:scale(1.9);background:#E8FF52;box-shadow:0 0 0 3px rgba(155,77,255,.6)}14%{transform:scale(1);background:#9B4DFF;box-shadow:0 0 0 0 rgba(232,255,82,0)}100%{transform:scale(1);background:#9B4DFF}}@keyframes ldNodeLblW{0%{background:transparent;color:#C7C9C3}3%{background:#E8FF52;color:#08090A}12%{background:#E8FF52;color:#08090A}18%{background:transparent;color:#C7C9C3}100%{background:transparent;color:#C7C9C3}}@keyframes ldNodeLine{0%{transform:scaleX(0)}10%{transform:scaleX(1)}85%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}@keyframes ldNumPulse{0%{background:#E8FF52;color:#08090A}26%{background:#E8FF52;color:#08090A}33%{background:transparent}100%{background:transparent}}
+/* Responsive ≤640px — 01 OUR APPROACH y 06 MEDIA PLACEMENTS.
+   Los nowrap de escritorio se relajan solo en móvil; el lockup de 2 líneas del hero
+   se reescala con cqi (7.4cqi cubre la línea más larga en EN y ES). */
+@media (max-width:640px){
+  .ld-hero-wrap{container-type:inline-size}
+  .ld-hero-title span:first-child,.ld-hero-title span:last-child{font-size:min(clamp(28px,5.1vw,70px),7.4cqi) !important}
+  .ld-hero-lead{white-space:normal !important;font-size:clamp(13.5px,3.5vw,15.5px) !important;line-height:1.5 !important}
+  .ld-fmt-side{min-width:0 !important;max-width:100% !important;margin-left:0 !important;padding-top:0 !important;align-items:flex-start !important}
+  .ld-fmt-kicker{white-space:normal !important;font-size:clamp(9.5px,2.55vw,10.5px) !important;line-height:1.75 !important}
+  .ld-nav-link{display:none !important}
+  header{gap:14px !important}
+  header nav{gap:10px !important;font-size:9.8px !important;letter-spacing:.1em !important}
+  header nav a[href="#identity"]{padding:9px 12px !important;letter-spacing:.08em !important}
+}</style>
 <script src="./image-slot.js"></script>
 <script src="./i18n-web-es.js"></script>
 </helmet>
@@ -125,7 +139,7 @@
     <nav style="display:flex; align-items:center; gap:clamp(14px,2.4vw,30px); font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:0.16em; color:#9C9A95">
       <span style="position:relative; display:flex"><span data-lang-btn="" onClick="{{ toggleMenu }}" title="Language / Idioma" style="cursor:pointer; display:flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid #2E322D; transition:border-color .2s" style-hover="border-color:#9B4DFF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C7C9C3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg></span><sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:calc(100% + 8px); left:0; display:flex; flex-direction:column; min-width:130px; background:#0E0F10; border:1px solid #2E322D; z-index:70"><span onClick="{{ setEn }}" style="{{ enStyle }}">ENGLISH</span><span onClick="{{ setEs }}" style="{{ esStyle }}">ESPAÑOL</span></span></sc-if></span>
       <a href="#showroom">SHOWROOM</a>
-      <a href="#what">WHAT WE DO</a>
+      <a class="ld-nav-link" href="#what">WHAT WE DO</a>
       <a href="#identity" style="padding:9px 16px; background:#9B4DFF; color:#FFFFFF; letter-spacing:0.14em; transition:transform .2s, background .2s; animation:ldTalkPulseV 2s ease-out infinite" style-hover="background:#E8FF52; color:#08090A; transform:translateY(-2px)">DISCOVER LOOP</a>
     </nav>
   </header>
@@ -134,15 +148,15 @@
     <video src="uploads/10785556-hd_1920_1080_30fps.mp4" autoplay="" muted="" loop="" playsinline="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.55"></video>
     <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,9,10,0.72) 0%, rgba(8,9,10,0.28) 38%, rgba(8,9,10,0.94) 100%)"></div>
 
-    <div style="position:relative; padding:clamp(28px,4vw,52px) max(clamp(24px,4.5vw,64px), (100% - 1320px) / 2) clamp(28px,4vw,48px); display:flex; flex-direction:column; gap:clamp(20px,2.4vw,28px)">
+    <div class="ld-hero-wrap" style="position:relative; padding:clamp(28px,4vw,52px) max(clamp(24px,4.5vw,64px), (100% - 1320px) / 2) clamp(28px,4vw,48px); display:flex; flex-direction:column; gap:clamp(20px,2.4vw,28px)">
       <span style="font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:0.2em; color:#E8FF52">PREMIUM OMNICHANNEL MEDIA · BRAND RELEVANCE · ONE STRATEGIC PARTNER</span>
-      <h1 style="margin:0; font-weight:900; font-variation-settings:'wdth' 125; line-height:0.8; letter-spacing:-0.045em; display:flex; flex-direction:column; align-items:flex-start; white-space:nowrap">
+      <h1 class="ld-hero-title" style="margin:0; font-weight:900; font-variation-settings:'wdth' 125; line-height:0.8; letter-spacing:-0.045em; display:flex; flex-direction:column; align-items:flex-start; white-space:nowrap">
         <span style="font-size:clamp(28px,5.1vw,70px)">WHERE YOUR BRAND</span>
         <span style="font-size:clamp(29px,5.35vw,73px)">APPEARS MATTERS</span>
       </h1>
       <div style="display:flex; flex-direction:column; align-items:flex-start; gap:26px; padding-top:6px">
         <div style="display:flex; flex-direction:column; gap:22px; align-items:flex-start">
-          <p style="margin:0; max-width:100%; white-space:nowrap; font-size:clamp(11px,1.45vw,16.5px); line-height:1.65; color:#C7C9C3">We help brands build stronger, more intentional presence across premium omnichannel media.</p>
+          <p class="ld-hero-lead" style="margin:0; max-width:100%; white-space:nowrap; font-size:clamp(11px,1.45vw,16.5px); line-height:1.65; color:#C7C9C3">We help brands build stronger, more intentional presence across premium omnichannel media.</p>
           
           <div style="display:flex; align-items:center; gap:14px; font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:0.16em; color:#9C9A95">
             <span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#E8FF52"></span>
@@ -252,8 +266,8 @@
         <span style="font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:0.2em; color:#9B4DFF">06 — MEDIA PLACEMENTS</span>
         <h2 style="margin:0; font-weight:900; font-variation-settings:'wdth' 125; font-size:clamp(28px,5.8cqi,58px); line-height:0.89; letter-spacing:-0.048em">EVERY MEDIA<br />PLACEMENT<br />HAS A PURPOSE</h2>
       </div>
-      <div style="display:flex; flex-direction:column; flex:5 1 auto; min-width:min(100%, max-content); max-width:100%; gap:20px; padding-top:36px; padding-right:0; align-items:flex-end; margin-left:auto">
-        <span style="max-width:100%; font-family:'JetBrains Mono', monospace; letter-spacing:0.14em; color:#E8FF52; line-height:1.9; white-space:nowrap; font-size:clamp(8.5px, 0.9vw, 10.5px)">ONE ECOSYSTEM · DIFFERENT TOUCH POINTS · ONE CONNECTED BRAND EXPERIENCE</span>
+      <div class="ld-fmt-side" style="display:flex; flex-direction:column; flex:5 1 auto; min-width:min(100%, max-content); max-width:100%; gap:20px; padding-top:36px; padding-right:0; align-items:flex-end; margin-left:auto">
+        <span class="ld-fmt-kicker" style="max-width:100%; font-family:'JetBrains Mono', monospace; letter-spacing:0.14em; color:#E8FF52; line-height:1.9; white-space:nowrap; font-size:clamp(8.5px, 0.9vw, 10.5px)">ONE ECOSYSTEM · DIFFERENT TOUCH POINTS · ONE CONNECTED BRAND EXPERIENCE</span>
       </div>
     </div>
 
