@@ -41,7 +41,7 @@ window.LOOP_WEB_ES = {
 "We learn from how the plan evolves in market and improve it over time to strengthen brand presence.":"Aprendemos de cómo evoluciona el plan en el mercado y lo mejoramos con el tiempo para fortalecer la presencia de marca.",
 "05 — WHAT WE ACTIVATE":"05 — QUÉ ACTIVAMOS","PREMIUM OMNICHANNEL":"MEDIOS PREMIUM","MEDIA":"OMNICANAL",
 "PREMIUM ENVIRONMENTS · CONNECTED TOUCHPOINTS · ONE BRAND EXPERIENCE":"ENTORNOS PREMIUM · PUNTOS DE CONTACTO CONECTADOS · UNA EXPERIENCIA DE MARCA",
-"We build a media ecosystem that brings premium formats and touchpoints together into one connected brand experience.":"Construimos un ecosistema de medios que une formatos premium y puntos de contacto en una experiencia de marca conectada.",
+"We build a premium media ecosystem that brings formats and touchpoints together into one connected brand experience.":"Construimos un ecosistema de medios premium que une formatos y puntos de contacto en una experiencia de marca conectada.",
 "CONNECTED TV":"TV CONECTADA",
 "ONE ECOSYSTEM":"UN ECOSISTEMA","MULTIPLE TOUCHPOINTS":"MÚLTIPLES PUNTOS DE CONTACTO","ONE CONNECTED":"UNA EXPERIENCIA","BRAND EXPERIENCE":"DE MARCA CONECTADA",
 "06 — MEDIA PLACEMENTS":"06 — MEDIA PLACEMENTS","EVERY FORMAT":"CADA FORMATO","EVERY MEDIUM":"CADA MEDIO","EVERY MEDIA":"CADA MEDIA","PLACEMENT":"PLACEMENT","HAS A PURPOSE":"TIENE UN PROPÓSITO",
@@ -122,7 +122,7 @@ Object.assign(window.LOOP_WEB_ES, {"PREMIUM MEDIA · BRAND RELEVANCE · ONE STRA
 
 window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"ONE ECOSYSTEM · DIFFERENT TOUCH POINTS · ONE CONNECTED BRAND EXPERIENCE":"UN ECOSISTEMA · DIFERENTES PUNTOS DE CONTACTO · UNA EXPERIENCIA DE MARCA CONECTADA"});
 
-window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"We build brand relevance through an intentional and distinctive presence across the omnichannel media ecosystem.":"Construimos relevancia de marca a través de una presencia intencional y distintiva en el ecosistema de medios omnicanal."});
+window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"We build brand relevance through an intentional and distinctive presence across the premium omnichannel media ecosystem.":"Construimos relevancia de marca a través de una presencia intencional y distintiva en el ecosistema de medios premium omnicanal."});
 
 window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"PREMIUM OMNICHANNEL MEDIA":"MEDIOS PREMIUM OMNICANAL"});
 
