@@ -1,4 +1,4 @@
-window.LOOP_DECK_ES = {
+window.LOOP_DECK_ES = Object.assign(window.LOOP_DECK_ES || {}, {
 "PREMIUM PUBLISHERS":"PUBLISHERS PREMIUM","· DIRECT & PMP ACCESS":"· ACCESO DIRECTO Y PMP",
 "AUDIENCE\u2062":"AUDIENCIA","· CONTEXT ·\u2062":"· CONTEXTO ·",
 "PREMIUM\u2062":"MEDIOS PREMIUM","OMNICHANNEL\u2062":"OMNICHANNEL","MEDIA\u2062":"MEDIA","MEDIA\u2063":"OMNICANAL",
@@ -181,11 +181,12 @@ window.LOOP_DECK_ES = {
  "Turn relevance into affinity.": "Convertir relevancia en afinidad.",
  "Build a brand that stays top of mind among the audiences that matter most.": "Construir una marca que permanece en el top of mind de las audiencias de valor para la marca.",
  "Strengthen how the brand is perceived.": "Fortalecer la forma en que la marca es percibida.",
-"COMMERCIAL PROPOSAL":"PROPUESTA COMERCIAL","VISIT WEBSITE →":"VER SITIO WEB →","VISIT WEBSITE":"VER SITIO WEB","LANGUAGE":"LENGUAJE",
+ "Head of Sales: sales@byads.co": "Director Comercial: sales@byads.co",
+"COMMERCIAL PROPOSAL":"PROPUESTA COMERCIAL","VISIT WEBSITE →":"VER SITIO WEB →","VISIT WEBSITE":"VER SITIO WEB","Email: sales@byads.co":"Correo: sales@byads.co","LANGUAGE":"LENGUAJE",
 "WHERE YOUR BRAND":"DONDE APARECE","APPEARS MATTERS":"TU MARCA IMPORTA",
-"PREMIUM MEDIA & BRAND AWARENESS":"MEDIOS PREMIUM Y NOTORIEDAD DE MARCA",
-"WHO WE ARE":"QUIÉNES SOMOS","SPECIALIST CONSULTANTS":"CONSULTORES ESPECIALISTAS","IN":"EN","PREMIUM MEDIA":"MEDIOS PREMIUM","BRAND AWARENESS":"NOTORIEDAD DE MARCA",
-"MEDIA EXPERTISE BUILT ON BRAND-FIRST THINKING":"EXPERIENCIA EN MEDIOS CON LA MARCA PRIMERO",
+"PREMIUM MEDIA & BRAND AWARENESS":"MEDIOS PREMIUM Y RECONOCIMIENTO DE MARCA",
+"WHO WE ARE":"QUIÉNES SOMOS","SPECIALIST CONSULTANTS":"CONSULTORES ESPECIALISTAS","IN":"EN","PREMIUM MEDIA":"MEDIOS PREMIUM","BRAND AWARENESS":"RECONOCIMIENTO DE MARCA",
+"MEDIA EXPERTISE BUILT ON BRAND-FIRST THINKING":"EXPERIENCIA EN MEDIOS CONSTRUIDA CON LA MARCA COMO PRIORIDAD",
 "Loop Digital is a specialist consultancy focused on Premium Media & Brand Awareness. We believe stronger brand presence starts with understanding the brand first — its identity, audience, context and ambitions — and approaching media with intention, clarity, strategy and a brand-first mindset.":"Loop Digital es una consultora especializada en Medios Premium y Notoriedad de Marca. Creemos que una presencia de marca más sólida empieza por entender primero la marca — su identidad, audiencia, contexto y ambiciones — y abordar los medios con intención, claridad, estrategia y una mentalidad centrada en la marca.",
 "SPECIALIST CONSULTANCY · PREMIUM MEDIA":"CONSULTORA ESPECIALIZADA · MEDIOS PREMIUM",
 "WHY IT MATTERS":"POR QUÉ IMPORTA","BRAND PERCEPTION":"PERCEPCIÓN DE MARCA",
@@ -201,7 +202,7 @@ window.LOOP_DECK_ES = {
 "WHAT YOUR BRAND GAINS":"QUÉ GANA TU MARCA","MORE THAN REACH":"MÁS QUE ALCANCE",
 "HOW THE INVESTMENT IS BUILT":"CÓMO SE CONSTRUYE LA INVERSIÓN","BUILT AROUND YOUR BRAND":"A LA MEDIDA DE TU MARCA",
 "FROM BRAND THINKING TO MEDIA ACTION":"DEL PENSAMIENTO DE MARCA A LA ACCIÓN EN MEDIOS",
-"WE BUILD SMARTER":"CREAMOS PRESENCIA","BRAND PRESENCE":"DE MARCA INTELIGENTE",
+"WE BUILD SMARTER":"CREAMOS PRESENCIA","WE BUILD\u200b":"CONSTRUIMOS","BRAND RELEVANCE":"RELEVANCIA DE MARCA","BRAND PRESENCE":"DE MARCA INTELIGENTE",
 "PREMIUM · RELEVANT · STRATEGIC · MEMORABLE":"PREMIUM · RELEVANTE · ESTRATÉGICA · MEMORABLE",
 "We help brands move beyond visibility by building a stronger, more intentional presence across the media ecosystem.":"Ayudamos a las marcas a ir más allá de la visibilidad, construyendo una presencia más sólida e intencional en todo el ecosistema de medios.",
 "Brands don't need to be everywhere.":"Las marcas no necesitan estar en todas partes.","They need to be where it matters.":"Necesitan estar donde importa.",
@@ -236,7 +237,7 @@ window.LOOP_DECK_ES = {
 "Precision is not about reaching more people.":"La precisión no se trata de llegar a más personas.",
 "It is about making every media decision more intentional.":"Se trata de que cada decisión de medios sea más intencional.",
 "RELEVANCE · INTENT · CLARITY":"RELEVANCIA · INTENCIÓN · CLARIDAD",
-"Brand presence designed to become more relevant, recognizable and memorable over time.":"Presencia de marca diseñada para ser más relevante, reconocible y memorable con el tiempo.",
+"Brand presence designed to become more relevant, recognizable and memorable over time.":"Presencia de marca diseñada para ser más relevante, reconocible y memorable en el tiempo.",
 "Show up consistently where it matters.":"Aparece de forma constante donde importa.",
 "Connect with audiences in the right context.":"Conecta con las audiencias en el contexto correcto.",
 "Build familiarity across connected touchpoints.":"Construye familiaridad a través de puntos de contacto conectados.",
@@ -309,7 +310,7 @@ window.LOOP_DECK_ES = {
 "WHERE YOUR BRAND APPEARS":"DÓNDE APARECE TU MARCA",
 "SMARTER BRAND PRESENCE":"PRESENCIA DE MARCA MÁS INTELIGENTE",
 "BRAND PRESENCE":"DE MARCA MÁS INTELIGENTE",
-"MEDIA EXPERTISE BUILT ON BRAND-FIRST THINKING":"EXPERIENCIA EN MEDIOS DESDE LA MARCA",
+"MEDIA EXPERTISE BUILT ON BRAND-FIRST THINKING":"EXPERIENCIA EN MEDIOS CONSTRUIDA CON LA MARCA COMO PRIORIDAD",
 "A smarter brand presence over time.":"Una presencia de marca más inteligente con el tiempo.",
 "Planning starts with understanding who we want to reach, so we can select the media, publishers and environments with the strongest affinity for the brand.":"La planificación parte de entender a quién queremos llegar para seleccionar los medios, publishers y entornos con mayor afinidad para la marca.",
 "HIGH-PRECISION":"SEGMENTACIÓN DE",
@@ -325,4 +326,113 @@ window.LOOP_DECK_ES = {
 "We learn as the campaign evolves.":"Aprendemos a medida que la campaña evoluciona.",
 "Shift frequency toward high-affinity audiences and extend top-performing video contexts.":"Mover la frecuencia hacia audiencias de alta afinidad y ampliar los contextos de video con mejor desempeño.",
 "CONTACT":"CONTACTO"
-};
+});
+
+Object.assign(window.LOOP_DECK_ES, {"Our AI-powered technology analyzes the publisher and advertiser ecosystem to generate strategic market, competitive and audience insights. We take the strategy one step further with Brand Lift, measuring audiences’ real perception to turn their answers into tactical decisions that secure the brand’s next big play.":"Nuestra tecnología con Inteligencia Artificial analiza el ecosistema de publishers y advertisers para generar insights estratégicos de mercado, competencia y audiencias. Llevamos la estrategia un paso más allá integrando Brand Lift, midiendo la percepción real de las audiencias para convertir sus respuestas en decisiones tácticas que aseguren la siguiente gran jugada de la marca.",
+"AI INSIGHTS INCLUDED ·":"INSIGHTS CON IA INCLUIDOS ·",
+"AUDIENCE INTELLIGENCE":"INTELIGENCIA DE AUDIENCIAS",
+"01 · INCLUDED":"01 · INCLUIDO",
+"02 · INCLUDED":"02 · INCLUIDO",
+"03 · INCLUDED":"03 · INCLUIDO",
+"04 · BRAND STUDY":"04 · ESTUDIO DE MARCA",
+"A COMPLETE MARKET STUDY":"UN ESTUDIO DE MERCADO"});
+
+Object.assign(window.LOOP_DECK_ES, {"We set the precise starting scale for the brand, progressively optimizing reach and frequency. This way, we maximize return on investment by activating resources where the brand resonates most with its audiences.":"Establecemos la escala inicial precisa para la marca, optimizando progresivamente el alcance y la frecuencia. De esta manera, maximizamos el retorno de inversión activando los recursos donde la marca genera mayor resonancia con sus audiencias."});
+
+Object.assign(window.LOOP_DECK_ES, {"We set the precise starting scale for the brand, progressively optimizing reach and frequency. This way, we maximize investment by activating resources where the brand resonates most with its audiences.":"Establecemos la escala inicial precisa para la marca, optimizando progresivamente el alcance y la frecuencia. De esta manera, maximizamos la inversión activando los recursos donde la marca genera mayor resonancia con sus audiencias."});
+
+Object.assign(window.LOOP_DECK_ES, {"We set the precise starting scale for the brand.":"Establecemos la escala inicial precisa para la marca.","Then we progressively optimize reach and frequency.":"Luego optimizamos progresivamente el alcance y la frecuencia.","This way, we maximize investment by activating resources where the brand resonates most with its audiences.":"De esta manera, maximizamos la inversión activando los recursos donde la marca genera mayor resonancia con sus audiencias."});
+
+window.LOOP_DECK_ES["Loop Digital is a specialist consultancy in Premium Media & Brand Awareness, combining brand strategy, data and premium media environments to create more intentional and meaningful brand experiences."]="Loop Digital es una consultora especializada en Premium Media y Reconocimiento de Marca que combina estrategia de marca, datos y entornos de medios premium para crear experiencias de marca más intencionales y significativas.";
+
+window.LOOP_DECK_ES["BRAND RELEVANCE"]="RELEVANCIA DE MARCA";
+
+window.LOOP_DECK_ES["We build brand relevance through an intentional and distinctive presence across the media ecosystem, integrating digital strategy with offline efforts to create consistent, meaningful and high-impact brand experiences."]="Construimos relevancia de marca a través de una presencia intencional y distintiva en el ecosistema de medios, integrando la estrategia digital con los esfuerzos offline para crear experiencias de marca consistentes, significativas y de alto impacto.";
+
+window.LOOP_DECK_ES["SEE PREMIUM MEDIA"]="CONOCE NUESTROS MEDIOS PREMIUM";
+
+window.LOOP_DECK_ES["Clear metrics and quality signals provide greater visibility into campaign delivery."]="Métricas claras y señales de calidad que dan mayor visibilidad sobre la entrega de la campaña.";
+
+window.LOOP_DECK_ES["Start smart"]="Empieza con planeación estratégica";
+
+window.LOOP_DECK_ES["LEAVES AN"]="CAUSA";
+window.LOOP_DECK_ES["IMPRESSION"]="IMPRESIÓN";
+
+window.LOOP_DECK_ES["IMPRESSION"]="RELEVANCIA";
+
+window.LOOP_DECK_ES["Let's build smarter brand presence across premium media environments."]="Construyamos relevancia de marca con presencia estratégica en entornos de medios premium.";
+window.LOOP_DECK_ES["SMARTER PRESENCE · PREMIUM MEDIA · BRAND VALUE"]="RELEVANCIA DE MARCA · MEDIOS PREMIUM · VALOR DE MARCA";
+
+window.LOOP_DECK_ES["LEAVES AN"]="GENERA";
+window.LOOP_DECK_ES["IMPRESSION"]="IMPACTO";
+
+Object.assign(window.LOOP_DECK_ES, {"YOUR RESULTS":"TUS RESULTADOS","CUSTOM DASHBOARD · DAILY DATA ·":"DASHBOARD PERSONALIZADO · DATOS DIARIOS ·","We deliver a custom dashboard with the brand’s campaign metrics, updated every day, so your team can follow performance anytime, from any device.":"Entregamos un dashboard personalizado con las métricas de la campaña de la marca, actualizadas cada día, para que tu equipo siga el desempeño cuando quiera y desde cualquier dispositivo.","YOUR DASHBOARD":"TU DASHBOARD","Built for your brand.":"Hecho para tu marca.","Metrics selected for your objectives, media placements and audiences — all in one place.":"Métricas seleccionadas según tus objetivos, media placements y audiencias — todo en un solo lugar.","Decisions with your team.":"Decisiones con tu equipo.","We review the data together and adjust audiences, contexts, frequency and investment.":"Revisamos los datos juntos y ajustamos audiencias, contextos, frecuencia e inversión.","BRAND · DASHBOARD":"MARCA · DASHBOARD","UPDATED DAILY · D-1":"ACTUALIZADO DÍA VENCIDO","Your campaign, day by day,":"Tu campaña, día a día,","in one place.":"en un solo lugar.","CUSTOM · DAILY · TRANSPARENT":"PERSONALIZADO · DIARIO · TRANSPARENTE"});
+
+window.LOOP_DECK_ES["SEE PREMIUM MEDIA"]="CONOCE NUESTROS";
+window.LOOP_DECK_ES["IN ACTION"]="MEDIOS PREMIUM EN ACCIÓN";
+
+window.LOOP_DECK_ES["IN PREMIUM MEDIA"]="EN MEDIOS PREMIUM";
+
+window.LOOP_DECK_ES["PREMIUM ENVIRONMENTS · CONNECTED TOUCHPOINTS ·"]="ENTORNOS PREMIUM · PUNTOS DE CONTACTO CONECTADOS ·";
+
+window.LOOP_DECK_ES["SEE PREMIUM MEDIA"]="CONOCE NUESTROS MEDIOS";
+window.LOOP_DECK_ES["IN ACTION"]="PREMIUM EN ACCIÓN";
+
+window.LOOP_DECK_ES["SEE PREMIUM MEDIA"]="CONOCE NUESTROS";
+window.LOOP_DECK_ES["IN ACTION"]="MEDIOS PREMIUM";
+
+window.LOOP_DECK_ES["We build a media ecosystem that brings premium formats and touchpoints together into"]="Construimos un ecosistema de medios que une formatos premium y puntos de contacto en";
+window.LOOP_DECK_ES["one connected brand experience"]="una experiencia de marca conectada";
+
+window.LOOP_DECK_ES["PLAN"]="PLANEAMOS";
+window.LOOP_DECK_ES["CURATE"]="CURAMOS";
+window.LOOP_DECK_ES["CONNECT"]="CONECTAMOS";
+window.LOOP_DECK_ES["AMPLIFY"]="POTENCIAMOS";
+
+window.LOOP_DECK_ES["A smarter brand presence over time."]="Una presencia de marca más relevante con el tiempo.";
+
+window.LOOP_DECK_ES["A smarter brand presence over time."]="Una presencia de marca más relevante en el tiempo.";
+
+Object.assign(window.LOOP_DECK_ES, {"AUDIENCE →":"AUDIENCIA →","CONTEXT →":"CONTEXTO →","STEP 01":"PASO 01","STEP 02":"PASO 02","STEP 03":"PASO 03","STRATEGY":"ESTRATEGIA","ACTIVATION":"ACTIVACIÓN","IMPACT":"IMPACTO","We understand who we want to reach in order to precisely select the media, publishers and environments with the strongest affinity for the brand.":"Comprendemos a quién queremos llegar para seleccionar con precisión los medios, publishers y entornos de mayor afinidad para la marca.","We combine data and real-time audience signals to deliver the message to the most relevant profiles in the right context.":"Combinamos data y señales de audiencia en tiempo real para desplegar el mensaje a los perfiles más relevantes en el contexto adecuado.","Consistency across audience, context and media translates into a more relevant, recognizable and memorable brand presence.":"La consistencia entre audiencia, contexto y medio se traduce en una presencia de marca más relevante, reconocible y memorable."});
+
+window.LOOP_DECK_ES["FROM BRAND THINKING TO MEDIA ACTION"]="DEL PENSAMIENTO ESTRATÉGICO A LA ACCIÓN DE MARCA";
+
+window.LOOP_DECK_ES["FROM BRAND THINKING TO MEDIA ACTION"]="DEL PENSAMIENTO ESTRATÉGICO A LA ACCIÓN EN MEDIOS";
+
+Object.assign(window.LOOP_DECK_ES, {"Be exactly where the brand needs to be seen.":"Estar exactamente donde la marca necesita ser vista.","Connect with the context and audiences that truly matter.":"Conectar con el contexto y las audiencias que realmente importan.","Build familiarity and consistency at every touchpoint.":"Construir familiaridad y consistencia en cada punto de contacto.","Stay actively top of mind with your target audience.":"Permanecer activamente en la mente de tu audiencia objetivo.","Strengthen the brand’s perceived value and reputation.":"Fortalecer el valor percibido y la reputación de la marca.","From memory to perceived value":"De la memoria a la percepción de valor"});
+
+Object.assign(window.LOOP_DECK_ES, {"ANTI-FRAUD & INVALID TRAFFIC":"ANTIFRAUDE Y TRÁFICO INVÁLIDO","ANTI-FRAUD &amp; INVALID TRAFFIC":"ANTIFRAUDE Y TRÁFICO INVÁLIDO","Full visibility.":"Visibilidad total.","Clear, real metrics on your campaign’s performance.":"Métricas claras y reales sobre el rendimiento de tu campaña.","Brand protection.":"Protección de marca.","Control over environments to avoid unsuitable content.":"Control sobre los entornos para evitar contenidos no adecuados.","Secure investment.":"Inversión segura.","Detection of bots and automated patterns to filter out fake impressions.":"Detección de bots y patrones automáticos para filtrar impresiones falsas.","Real impact.":"Impacto real.","Verification that every impression has a real opportunity to be seen.":"Verificación de que cada impresión tenga una oportunidad efectiva de ser vista."});
+
+window.LOOP_DECK_ES["We set the precise starting scale for the brand, then progressively optimize reach and frequency. This way, we maximize investment by activating resources where the brand resonates most with its audiences."]="Establecemos la escala inicial precisa para la marca y luego optimizamos progresivamente el alcance y la frecuencia. De esta manera, maximizamos la inversión activando los recursos donde la marca genera mayor resonancia con sus audiencias.";
+
+Object.assign(window.LOOP_DECK_ES, {"A more relevant brand presence over time.":"Una presencia de marca más relevante en el tiempo.","Let's build brand relevance through strategic presence across premium media environments.":"Construyamos relevancia de marca con presencia estratégica en entornos de medios premium.","BRAND RELEVANCE · PREMIUM MEDIA · BRAND VALUE":"RELEVANCIA DE MARCA · MEDIOS PREMIUM · VALOR DE MARCA"});
+
+Object.assign(window.LOOP_DECK_ES, {"More control":"Más control","Better quality":"Mejor calidad","Safer brand exposure":"Una exposición de marca más segura"});
+
+window.LOOP_DECK_ES = Object.assign(window.LOOP_DECK_ES || {}, {"PLATFORM CERTIFICATIONS":"CERTIFICACIONES DE LAS PLATAFORMAS"});
+
+window.LOOP_DECK_ES = Object.assign(window.LOOP_DECK_ES || {}, {"PREMIUM OMNICHANNEL MEDIA":"MEDIOS PREMIUM OMNICANAL","& BRAND AWARENESS":"& RECONOCIMIENTO DE MARCA","PREMIUM OMNICHANNEL MEDIA & BRAND AWARENESS":"MEDIOS PREMIUM OMNICANAL Y RECONOCIMIENTO DE MARCA"});
+
+window.LOOP_DECK_ES = Object.assign(window.LOOP_DECK_ES || {}, {"BRAND RELEVANCE · PREMIUM OMNICHANNEL MEDIA · BRAND VALUE":"RELEVANCIA DE MARCA · MEDIOS PREMIUM OMNICANAL · VALOR DE MARCA","MEDELLÍN CO · PREMIUM OMNICHANNEL MEDIA & BRAND AWARENESS":"MEDELLÍN CO · MEDIOS PREMIUM OMNICANAL Y RECONOCIMIENTO DE MARCA"});
+
+window.LOOP_DECK_ES = Object.assign(window.LOOP_DECK_ES || {}, {"MARKET INTELLIGENCE":"INTELIGENCIA DE MERCADO","DELIVERED MONTH BY MONTH":"QUE RECIBES MES A MES","AI-POWERED INSIGHTS ·":"INSIGHTS IMPULSADOS POR IA ·","Our AI technology analyzes the digital ecosystem of publishers and advertisers to identify trends, behaviors and strategic market insights, which we share monthly to enrich the strategy and guide tactical adjustments.":"Nuestra tecnología de IA analiza el ecosistema digital de publishers y anunciantes para identificar tendencias, comportamientos e insights estratégicos de mercado, que compartimos mensualmente para enriquecer la estrategia y orientar ajustes tácticos.","Additionally, we can take this analysis a step further by adding Brand Lift as a complementary tool, measuring brand perception among the audiences reached and turning the results into actionable insights to guide upcoming positioning decisions.":"Adicionalmente, podemos llevar este análisis un paso más allá incorporando Brand Lift como una herramienta complementaria, que nos permite medir la percepción de la marca entre las audiencias impactadas y convertir estos resultados en insights accionables para orientar las próximas decisiones de posicionamiento.","INTELLIGENCE DELIVERABLES":"INTELLIGENCE DELIVERABLES","· INCLUDED":"· INCLUIDO","CUSTOM DASHBOARD":"DASHBOARD PERSONALIZADO","INSIGHTS & TRENDS":"INSIGHTS Y TENDENCIAS","AUDIENCE INTELLIGENCE + TACTICAL OPTIMIZATION":"INTELIGENCIA DE AUDIENCIAS + OPTIMIZACIÓN TÁCTICA","· ADD-ON":"· ADICIONAL","Additional cost":"Costo adicional","· available upon client request.":"· disponible a solicitud del cliente."});
+
+window.LOOP_DECK_ES["Loop Digital is a consultancy specialized in premium omnichannel media and brand awareness. We combine strategy, data analytics and high-value digital environments to design intentional, relevant and high-impact experiences for brands."]="Loop Digital es una consultora especializada en medios premium omnicanal y reconocimiento de marca. Combinamos estrategia, analítica de datos y entornos digitales de alto valor para diseñar experiencias intencionales, relevantes y de alto impacto para las marcas.";
+
+window.LOOP_DECK_ES["WHAT WE DO"]="QUÉ HACEMOS";
+
+window.LOOP_DECK_ES["HOW WE MEASURE RESULTS"]="CÓMO MEDIMOS RESULTADOS";
+
+window.LOOP_DECK_ES["Premium media ecosystems and touchpoints united in"]="Ecosistemas de medios premium y puntos de contacto unidos en";
+
+Object.assign(window.LOOP_DECK_ES,{"WE BUILD​":"CONSTRUIMOS","WE BUILD":"CONSTRUIMOS","BRAND RELEVANCE":"RELEVANCIA DE MARCA","PREMIUM​":"PREMIUM","· RELEVANT · STRATEGIC · MEMORABLE":"· RELEVANTE · ESTRATÉGICA · MEMORABLE","We design an intentional and distinctive presence across the media ecosystem, integrating digital strategy with offline efforts to create consistent, meaningful and high-impact brand experiences.":"Diseñamos una presencia intencional y distintiva en el ecosistema de medios, integrando la estrategia digital con los esfuerzos offline para crear experiencias de marca consistentes, significativas y de alto impacto.","Brands don't need to be everywhere.":"Las marcas no necesitan estar en todas partes.","They need to be where their presence matters.":"Necesitan estar donde su presencia importa."});
+
+Object.assign(window.LOOP_DECK_ES,{"INTERACTIVE EXPERIENCE":"EXPERIENCIA INTERACTIVA","EXPLORE THE SHOWROOM":"EXPLORAR SHOWROOM","EXPLORE THE SHOWROOM ":"EXPLORAR SHOWROOM "});
+
+window.LOOP_DECK_ES["We combine layers of data, context, location and high-value inventory to optimize how, where and to whom each brand is reached."]="Combinamos capas de datos, contexto, ubicación e inventario de alto valor para optimizar cómo, dónde y a quién llega cada marca.";
+
+Object.assign(window.LOOP_DECK_ES,{"MEMORY":"MEMORIA","HIGH-VALUE PERCEPTION":"PERCEPCIÓN DE ALTO VALOR","From visibility to relevance.":"De la visibilidad a la relevancia.","From relevance to recognition.":"De la relevancia al reconocimiento.","From recognition to memory.":"Del reconocimiento a la memoria.","From memory to high-value perception.":"De la memoria a la percepción de alto valor.","Media strategies built to create brand relevance, turning simple impressions into high-value perception.":"Estrategias de medios orientadas a construir relevancia de marca, transformando simples impactos en una percepción de alto valor.","Be exactly where the brand should be seen.":"Estar exactamente donde la marca debe ser vista.","Connect with the context and audiences that really matter.":"Conectar con el contexto y las audiencias que realmente importan.","Build familiarity and consistency across every touchpoint.":"Construir familiaridad y consistencia en cada punto de contacto.","Secure a priority, lasting place in the consumer’s mind.":"Asegurar un lugar prioritario y duradero en la mente del consumidor.","Strengthen the brand’s reputation, perceived value and preference.":"Fortalecer la reputación, el valor percibido y la preferencia de la marca."});
+
+Object.assign(window.LOOP_DECK_ES,{"Consistency across audience, context and media translates into a brand presence that becomes more relevant, recognizable and memorable over time.":"La consistencia entre audiencia, contexto y medio se traduce en una presencia de marca más relevante, reconocible y memorable en el tiempo.","We build brand relevance":"Construimos relevancia de marca","through a":"a través de una","strategic presence in premium media environments.":"presencia estratégica en entornos de medios premium."});
+
+window.LOOP_DECK_ES["We build brand relevance through a strategic presence in premium media environments."]="Construimos relevancia de marca con presencia estratégica en entornos de medios premium.";
