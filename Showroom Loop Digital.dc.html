@@ -604,13 +604,9 @@
         b.addEventListener('click', e => { e.stopPropagation(); onClick(); });
         return b;
       };
-      const name = (String(src).split('/').pop() || '').replace(/\.html$/i, '').replace(/[-_]+/g, ' ').toUpperCase();
-      const title = document.createElement('span');
-      title.textContent = name;
-      title.style.cssText = "flex:1; min-width:0; text-align:center; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.28em; color:#6E716B";
       const back = mkBtn('← BACK TO SHOWROOM', '← VOLVER AL SHOWROOM', '#C7C9C3', () => this.closeDemo());
       const close = mkBtn('CLOSE ✕', 'CERRAR ✕', '#9B4DFF', () => this.closeDemo());
-      bar.appendChild(back); bar.appendChild(title); bar.appendChild(close);
+      bar.appendChild(back); bar.appendChild(close);
       const f = document.createElement('iframe');
       f.setAttribute('allow', 'autoplay; fullscreen');
       const abs = new URL(src, location.href).href;
