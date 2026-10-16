@@ -604,12 +604,12 @@
         b.addEventListener('click', e => { e.stopPropagation(); onClick(); });
         return b;
       };
+      const abs = new URL(src, location.href).href;
       const back = mkBtn('← BACK TO SHOWROOM', '← VOLVER AL SHOWROOM', '#C7C9C3', () => this.closeDemo());
-      const close = mkBtn('CLOSE ✕', 'CERRAR ✕', '#9B4DFF', () => this.closeDemo());
-      bar.appendChild(back); bar.appendChild(close);
+      const openTab = mkBtn('OPEN IN NEW TAB ↗', 'ABRIR EN NUEVA PESTAÑA ↗', '#9B4DFF', () => { window.open(abs, '_blank', 'noopener'); });
+      bar.appendChild(back); bar.appendChild(openTab);
       const f = document.createElement('iframe');
       f.setAttribute('allow', 'autoplay; fullscreen');
-      const abs = new URL(src, location.href).href;
       f.style.cssText = 'width:100%; max-width:1400px; flex:1; min-height:0; border:1px solid #2E322D; background:#FFFFFF; opacity:0; transition:opacity .35s ease';
       f.addEventListener('load', () => { f.style.opacity = '1'; });
       setTimeout(() => { f.style.opacity = '1'; }, 1500);
