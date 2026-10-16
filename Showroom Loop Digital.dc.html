@@ -586,38 +586,41 @@
     this.onMsg = e => { if (e.data === 'loop-close-demo') this.closeDemo(); };
     window.addEventListener('message', this.onMsg);
     this.closeDemo = () => { if (this.demoEl) { this.demoEl.remove(); this.demoEl = null; } };
-    this.openDemo = src => {
-      const w = window.open('', '_blank');
-      if (w) {
-        w.document.write('<body style="margin:0;background:#08090A;color:#C7C9C3;font:12px monospace;display:grid;place-items:center;height:100vh">Loading…</body>');
-        fetch(src, { credentials: 'include' }).then(r => r.text()).then(html => {
-          const base = new URL(src, location.href).href;
-          html = html.replace(/<head([^>]*)>/i, '<head$1><base href="' + base + '">');
-          w.location.replace(URL.createObjectURL(new Blob([html], { type: 'text/html' })));
-        }).catch(() => { w.close(); this.openDemoInline(src); });
-        return;
-      }
-      this.openDemoInline(src);
-    };
+    this.openDemo = src => this.openDemoInline(src);
     this.openDemoInline = src => {
       this.closeDemo();
       const o = document.createElement('div');
-      o.style.cssText = 'position:fixed; inset:0; z-index:9999; background:rgba(8,9,10,0.92); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; padding:28px; box-sizing:border-box';
+      o.setAttribute('data-demo-overlay', '');
+      o.style.cssText = 'position:fixed; inset:0; z-index:9999; background:rgba(8,9,10,0.94); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; padding:22px 28px 28px; box-sizing:border-box';
       const bar = document.createElement('div');
-      bar.style.cssText = 'width:100%; max-width:1400px; display:flex; justify-content:flex-end';
-      const x = document.createElement('button');
-      x.textContent = this.lang === 'es' ? 'CERRAR ✕' : 'CLOSE ✕';
-      x.style.cssText = "cursor:pointer; background:#9B4DFF; color:#FFFFFF; border:0; padding:10px 16px; font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.16em";
-      x.onclick = e => { e.stopPropagation(); this.closeDemo(); };
-      bar.appendChild(x);
+      bar.style.cssText = 'width:100%; max-width:1400px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex:0 0 auto';
+      const mkBtn = (en, es, color, onClick) => {
+        const b = document.createElement('button');
+        b.textContent = this.lang === 'es' ? es : en;
+        b.setAttribute('data-demo-ui', '1'); b.setAttribute('data-demo-ui-en', en); b.setAttribute('data-demo-ui-es', es);
+        b.style.cssText = "cursor:pointer; background:transparent; border:1px solid " + color + "; color:" + color + "; padding:11px 18px; font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:500; letter-spacing:0.16em; white-space:nowrap; transition:border-color .2s, color .2s, background .2s";
+        b.addEventListener('mouseenter', () => { b.style.borderColor = '#E8FF52'; b.style.color = color === '#9B4DFF' ? '#E8FF52' : '#FFFFFF'; b.style.background = 'rgba(232,255,82,0.06)'; });
+        b.addEventListener('mouseleave', () => { b.style.borderColor = color; b.style.color = color; b.style.background = 'transparent'; });
+        b.addEventListener('click', e => { e.stopPropagation(); onClick(); });
+        return b;
+      };
+      const name = (String(src).split('/').pop() || '').replace(/\.html$/i, '').replace(/[-_]+/g, ' ').toUpperCase();
+      const title = document.createElement('span');
+      title.textContent = name;
+      title.style.cssText = "flex:1; min-width:0; text-align:center; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.28em; color:#6E716B";
+      const back = mkBtn('← BACK TO SHOWROOM', '← VOLVER AL SHOWROOM', '#C7C9C3', () => this.closeDemo());
+      const close = mkBtn('CLOSE ✕', 'CERRAR ✕', '#9B4DFF', () => this.closeDemo());
+      bar.appendChild(back); bar.appendChild(title); bar.appendChild(close);
       const f = document.createElement('iframe');
       f.setAttribute('allow', 'autoplay; fullscreen');
       const abs = new URL(src, location.href).href;
+      f.style.cssText = 'width:100%; max-width:1400px; flex:1; min-height:0; border:1px solid #2E322D; background:#FFFFFF; opacity:0; transition:opacity .35s ease';
+      f.addEventListener('load', () => { f.style.opacity = '1'; });
+      setTimeout(() => { f.style.opacity = '1'; }, 1500);
       fetch(abs, { credentials: 'include' }).then(r => { if (!r.ok) throw 0; return r.text(); }).then(html => {
         html = /<head[^>]*>/i.test(html) ? html.replace(/<head([^>]*)>/i, '<head$1><base href="' + abs + '">') : '<base href="' + abs + '">' + html;
         f.src = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
       }).catch(() => { f.src = abs; });
-      f.style.cssText = 'width:100%; max-width:1400px; flex:1; min-height:0; border:1px solid #2E322D; background:#FFFFFF';
       o.appendChild(bar); o.appendChild(f);
       o.addEventListener('click', e => { if (e.target === o) this.closeDemo(); });
       document.body.appendChild(o); this.demoEl = o;
@@ -636,6 +639,7 @@
         if (n.nodeValue !== v) n.nodeValue = v;
       }
       el.querySelectorAll('[data-lang="en"],[data-lang="es"]').forEach(b => { const on = b.dataset.lang === this.lang; b.style.background = on ? '#9B4DFF' : 'transparent'; b.style.color = on ? '#FFFFFF' : '#C7C9C3'; });
+      document.querySelectorAll('[data-demo-ui]').forEach(b => { const v = es ? b.dataset.demoUiEs : b.dataset.demoUiEn; if (v && b.textContent !== v) b.textContent = v; });
       document.documentElement.lang = this.lang;
     };
     this.setLang = l => { this.lang = l; try { localStorage.setItem('loopShowroomLang', l); } catch (e) {} this.applyLang(); };
