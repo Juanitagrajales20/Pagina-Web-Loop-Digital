@@ -96,8 +96,9 @@ a { color: inherit; text-decoration: none; display: block; }
   font-weight: 700;
   color: #FFFFFF;
   padding: 9px 18px;
-  background: #9B4DFF;
+background: #9B4DFF;
   border-radius: 2px;
+  white-space: nowrap;
   transition: all .2s ease;
   animation: ldTalkPulseV 2.6s ease-out infinite;
 }
@@ -221,14 +222,14 @@ a { color: inherit; text-decoration: none; display: block; }
 /* Grid Layout */
 .ld-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 @media (max-width: 980px) {
-  .ld-grid { grid-template-columns: repeat(2, 1fr); }
+  .ld-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 620px) {
-  .ld-grid { grid-template-columns: 1fr; }
+  .ld-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Card Component */
@@ -240,9 +241,10 @@ a { color: inherit; text-decoration: none; display: block; }
   border: 1px solid #242723;
   border-radius: 4px;
   transition: all .24s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
+cursor: pointer;
   position: relative;
   min-height: 245px;
+  min-width: 0;
 }
 
 /* All Cards Hover â€” Morado / Violet Glow */
@@ -258,7 +260,8 @@ a { color: inherit; text-decoration: none; display: block; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 8px 12px;
+  flex-wrap: wrap;
   margin-bottom: 18px;
 }
 .ld-card-num {
@@ -281,6 +284,9 @@ a { color: inherit; text-decoration: none; display: block; }
   padding: 4px 9px;
   border-radius: 999px;
   font-weight: 600;
+  line-height: 1.35;
+  text-align: right;
+  max-width: 70%;
 }
 
 /* Brand Badges â€” Violet & Acid Lime */
@@ -399,6 +405,121 @@ a { color: inherit; text-decoration: none; display: block; }
   color: #FFFFFF;
   text-shadow: 0 0 10px rgba(232, 255, 82, 0.6);
 }
+
+/* ==========================================================================
+   RESPONSIVE / MOBILE
+   ========================================================================== */
+
+/* Touch devices: no sticky hover states, tap feedback instead */
+@media (hover: none) {
+  .ld-card:hover,
+  .ld-card:active {
+    transform: none;
+    box-shadow: none;
+  }
+  .ld-card:active {
+    border-color: rgba(155, 77, 255, 0.65);
+    background: #151916;
+  }
+  .ld-card:hover .ld-card-arrow-box {
+    background: transparent;
+    border-color: #2A2E29;
+    color: #E8FF52;
+    transform: none;
+    box-shadow: none;
+  }
+  .ld-card:active .ld-card-arrow-box {
+    background: #E8FF52;
+    border-color: #E8FF52;
+    color: #08090A;
+  }
+  .ld-nav-cta:hover {
+    background: #9B4DFF;
+    color: #FFFFFF;
+    transform: none;
+    box-shadow: none;
+    animation: ldTalkPulseV 2.6s ease-out infinite;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .ld-card { min-height: 220px; }
+  .ld-card-desc { font-size: 12.5px; }
+}
+
+/* Mobile header */
+@media (max-width: 620px) {
+  .ld-header {
+    padding: 12px 18px;
+    gap: 12px;
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+  .ld-logo { font-size: 20px; }
+  .ld-header-right { gap: 12px; }
+  .ld-nav-link { font-size: 9.5px; letter-spacing: 0.14em; }
+  .ld-nav-cta {
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    padding: 11px 14px;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 620px) {
+  .ld-hero { padding: 48px 18px 30px; }
+  .ld-hero-kicker {
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    margin-bottom: 18px;
+    gap: 8px;
+  }
+  .ld-hero-title {
+    font-size: clamp(38px, 12vw, 106px);
+    line-height: 0.9;
+    text-wrap: balance;
+    margin-bottom: 18px;
+  }
+  .ld-hero-desc { font-size: 14px; line-height: 1.6; }
+  .ld-hero-desc .ld-br-lg { display: none; }
+
+  .ld-main { padding: 0 18px 72px; }
+  .ld-section { padding: 40px 0; }
+  .ld-section-header { gap: 10px; margin-bottom: 22px; }
+  .ld-section-title-wrap { gap: 6px; }
+  .ld-section-tag { font-size: 9.5px; letter-spacing: 0.18em; }
+  .ld-section-title { font-size: clamp(19px, 5.4vw, 24px); }
+  .ld-section-meta { font-size: 9.5px; letter-spacing: 0.16em; }
+
+  .ld-grid { gap: 14px; }
+  .ld-card { padding: 22px 20px 18px; min-height: 0; }
+  .ld-card-top { margin-bottom: 14px; }
+  .ld-card-title { font-size: clamp(19px, 5.4vw, 24px); margin-bottom: 8px; }
+  .ld-card-desc { font-size: 13.5px; line-height: 1.55; margin-bottom: 16px; }
+  .ld-card-meta { font-size: 9px; letter-spacing: 0.14em; margin-bottom: 14px; }
+  .ld-card-footer { padding-top: 12px; }
+  .ld-card-arrow-box { width: 34px; height: 34px; }
+
+  .ld-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 26px 18px 34px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .ld-header { padding: 10px 14px; }
+  .ld-nav-cta { padding: 10px 12px; font-size: 9px; }
+  .ld-hero-title { font-size: 37px; }
+  .ld-card-badge { font-size: 8.5px; letter-spacing: 0.12em; padding: 4px 8px; max-width: 62%; }
+  .ld-card { padding: 20px 18px 16px; }
+}
 </style>
 </head>
 <body>
@@ -427,7 +548,7 @@ a { color: inherit; text-decoration: none; display: block; }
 <section class="ld-hero">
   <p class="ld-hero-kicker">PREMIUM OMNICHANNEL MEDIA &mdash; ONE CONNECTED BRAND EXPERIENCE</p>
   <h1 class="ld-hero-title">ONE LINK<br>ALL <span class="ld-violet">DECKS</span></h1>
-  <p class="ld-hero-desc">Todas las presentaciones comerciales de Loop Digital en un solo lugar:<br>la presentación comercial general de marca y las propuestas personalizadas por cliente.</p>
+  <p class="ld-hero-desc">Todas las presentaciones comerciales de Loop Digital en un solo lugar:<br class="ld-br-lg"> la presentación comercial general de marca y las propuestas personalizadas por cliente.</p>
 </section>
 
 <!-- Main Sections -->
