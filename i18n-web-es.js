@@ -135,6 +135,6 @@ window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"Let's build brand
 
 window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"We build brand relevance through an intentional and distinctive presence in premium digital environments.":"Construimos relevancia de marca a través de una presencia intencional y distintiva en entornos digitales premium."});
 
-window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"We build a premium media ecosystem that brings formats and touchpoints together into one connected brand experience.":"Construimos un ecosistema de medios premium que reúne formatos y puntos de contacto en una sola experiencia de marca conectada."});
+window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"We build a premium media ecosystem that brings formats and touchpoints together into one connected brand experience.":"Conectamos un ecosistema de medios premium que reúne formatos y puntos de contacto en una sola experiencia de marca conectada."});
 
 window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"PREMIUM ENVIRONMENTS · CONNECTED TOUCHPOINTS · ONE BRAND EXPERIENCE":"ENTORNOS PREMIUM · PUNTOS DE CONTACTO · UNA EXPERIENCIA CONECTADA"});
