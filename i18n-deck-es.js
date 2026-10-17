@@ -436,3 +436,6 @@ Object.assign(window.LOOP_DECK_ES,{"MEMORY":"MEMORIA","HIGH-VALUE PERCEPTION":"P
 Object.assign(window.LOOP_DECK_ES,{"Consistency across audience, context and media translates into a brand presence that becomes more relevant, recognizable and memorable over time.":"La consistencia entre audiencia, contexto y medio se traduce en una presencia de marca más relevante, reconocible y memorable en el tiempo.","We build brand relevance":"Construimos relevancia de marca","through a":"a través de una","strategic presence in premium media environments.":"presencia estratégica en entornos de medios premium."});
 
 window.LOOP_DECK_ES["We build brand relevance through a strategic presence in premium media environments."]="Construimos relevancia de marca con presencia estratégica en entornos de medios premium.";
+
+window.LOOP_DECK_ES["Let's build brand relevance through strategic presence across premium omnichannel media."]="Construimos relevancia de marca con presencia estratégica en entornos de medios premium omnicanal.";
+

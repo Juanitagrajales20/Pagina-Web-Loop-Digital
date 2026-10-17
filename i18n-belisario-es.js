@@ -204,3 +204,7 @@ Object.assign(window.LOOP_DECK_ES, {"Shift frequency toward high-affinity audien
 window.LOOP_DECK_ES=window.LOOP_DECK_ES||{};window.LOOP_DECK_ES["We build brand relevance for Belisario through a strategic presence in premium media environments."]="Construimos relevancia de marca para Belisario con presencia estratégica en entornos de medios premium.";
 
 window.LOOP_DECK_ES["We build brand relevance for Belisario through a strategic presence in premium omnichannel media environments."]="Construimos relevancia de marca para Belisario con presencia estratégica en entornos de medios premium omnicanal.";
+
+window.LOOP_DECK_ES["A premium omnichannel media proposal to strengthen Belisario's prestige, recognition and recall among high-value audiences in Colombia."]="Una propuesta de medios premium omnicanal para fortalecer el prestigio, el reconocimiento y la recordación de Belisario entre audiencias de alto valor en Colombia.";
+window.LOOP_DECK_ES["As brand recognition and positioning consultants, we identified an opportunity to capitalize on Belisario's current strengths and amplify them through a premium omnichannel strategy that elevates its visibility, relevance and presence as a market benchmark."]="Como consultores en reconocimiento y posicionamiento de marca, identificamos una oportunidad para capitalizar las fortalezas actuales de Belisario y potenciarlas a través de una estrategia premium omnicanal que eleve su visibilidad, relevancia y presencia como referente en el mercado.";
+

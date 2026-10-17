@@ -42,7 +42,6 @@ window.LOOP_WEB_ES = {
 "05 — WHAT WE ACTIVATE":"05 — QUÉ ACTIVAMOS","PREMIUM OMNICHANNEL":"MEDIOS PREMIUM","MEDIA":"OMNICANAL",
 "PREMIUM ENVIRONMENTS · CONNECTED TOUCHPOINTS · ONE BRAND EXPERIENCE":"ENTORNOS PREMIUM · PUNTOS DE CONTACTO CONECTADOS · UNA EXPERIENCIA DE MARCA",
 "We build a media ecosystem that brings premium formats and touchpoints together into one connected brand experience.":"Construimos un ecosistema de medios que une formatos premium y puntos de contacto en una experiencia de marca conectada.",
-"CONNECTED TV":"TV CONECTADA",
 "ONE ECOSYSTEM":"UN ECOSISTEMA","MULTIPLE TOUCHPOINTS":"MÚLTIPLES PUNTOS DE CONTACTO","ONE CONNECTED":"UNA EXPERIENCIA","BRAND EXPERIENCE":"DE MARCA CONECTADA",
 "06 — MEDIA PLACEMENTS":"06 — MEDIA PLACEMENTS","EVERY FORMAT":"CADA FORMATO","EVERY MEDIUM":"CADA MEDIO","EVERY MEDIA":"CADA MEDIA","PLACEMENT":"PLACEMENT","HAS A PURPOSE":"TIENE UN PROPÓSITO",
 "ONE ECOSYSTEM · DIFFERENT ROLES · ONE CONNECTED BRAND EXPERIENCE":"UN ECOSISTEMA · ROLES DISTINTOS · UNA EXPERIENCIA DE MARCA CONECTADA",
@@ -133,3 +132,9 @@ window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"We help brands bu
 window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"NOT EVERY IMPRESSION":"NO TODA IMPRESIÓN","LEAVES AN IMPRESSION.":"GENERA IMPACTO."});
 
 window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"Let's build brand relevance through strategic presence across premium omnichannel media.":"Construyamos relevancia de marca a través de una presencia estratégica en medios premium omnicanal."});
+
+window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"We build brand relevance through an intentional and distinctive presence across the premium omnichannel media ecosystem.":"Construimos relevancia de marca a través de una presencia intencional y distintiva en el ecosistema de medios premium omnicanal."});
+
+window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"We build a premium media ecosystem that brings formats and touchpoints together into one connected brand experience.":"Construimos un ecosistema de medios premium que reúne formatos y puntos de contacto en una sola experiencia de marca conectada."});
+
+window.LOOP_WEB_ES = Object.assign(window.LOOP_WEB_ES || {}, {"PREMIUM ENVIRONMENTS · CONNECTED TOUCHPOINTS · ONE BRAND EXPERIENCE":"ENTORNOS PREMIUM · PUNTOS DE CONTACTO · UNA EXPERIENCIA CONECTADA"});

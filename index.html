@@ -41,6 +41,10 @@
      queda como aire muerto entre el titular y el kicker.
    · La sangría escalonada del bloque 01/02/03 se aplana: con sangría, "ONE CONNECTED
      BRAND EXPERIENCE" se partía en 4 líneas sueltas. */
+/* Los kickers nunca se recortan: el copy en ES es más largo que en EN
+   ("ENTORNOS PREMIUM · PUNTOS DE CONTACTO CONECTADOS · UNA EXPERIENCIA DE MARCA
+   CONECTADA"), y con nowrap en escritorio se salía del contenedor. */
+.ld-kicker{white-space:normal !important;text-wrap:balance}
 /* Legibilidad (también en tablet): los kickers mono dependían de vw y caían a 5-8px
    ya en 768px. No dependen del apilado de columnas, así que la regla sube hasta 1024px. */
 @media (max-width:1024px){
