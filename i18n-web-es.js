@@ -30,7 +30,7 @@ window.LOOP_WEB_ES = {
 "BRAND FIRST · STRATEGY LED · INTENTIONAL BY DESIGN":"LA MARCA PRIMERO · GUIADOS POR ESTRATEGIA · INTENCIONALES",
 "Every media strategy starts with the brand, its market and its objectives.":"Cada estrategia de medios empieza por la marca, su mercado y sus objetivos.",
 "STEP 01":"PASO 01","STEP 02":"PASO 02","STEP 03":"PASO 03","STEP 04":"PASO 04",
-"PLAN":"PLANEAR","CURATE":"CURAR","CONNECT":"CONECTAR","AMPLIFY":"POTENCIAR","CONNECTED CORE":"NÚCLEO CONECTADO",
+"PLAN":"PLANEAMOS","CURATE":"CURAMOS","CONNECT":"CONECTAMOS","AMPLIFY":"POTENCIAMOS","CONNECTED CORE":"NÚCLEO CONECTADO",
 "How the brand should show up.":"Cómo debe aparecer la marca.",
 "We define the perception the brand needs and the kind of presence it needs to build.":"Definimos la percepción que la marca necesita y el tipo de presencia que debe construir.",
 "What deserves to be part of the plan.":"Lo que merece ser parte del plan.",
