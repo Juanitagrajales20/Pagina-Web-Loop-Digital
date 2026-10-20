@@ -1,0 +1,6 @@
+# Ignore Downloads folder and temporary/local files
+Downloads/
+servidor.ps1
+*.log
+Thumbs.db
+.DS_Store
