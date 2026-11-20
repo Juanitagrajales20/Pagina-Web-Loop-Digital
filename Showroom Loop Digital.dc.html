@@ -4,7 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <!-- Fix for 100vw overflow on mobile: use safari vw fix -->
-<script>if(!window.innerWidth){(function(){'use strict';function a(){window.innerWidth=document.documentElement.clientWidth}window.addEventListener('resize',a),a())};</script>
+<script>
+if(!window.innerWidth){
+  (function(){'use strict';
+    function a(){window.innerWidth=document.documentElement.clientWidth}
+    window.addEventListener('resize',a)
+  })()
+};
+</script>
 <!-- Use dvh instead of vh for mobile address bar handling -->
 <script>document.documentElement.style.setProperty('--vh','calc(env(safe-area-top) + 1vh)','important')</script>
 <script src="./support.js"></script>
