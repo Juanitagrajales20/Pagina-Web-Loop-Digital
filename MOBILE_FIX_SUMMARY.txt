@@ -1,0 +1,36 @@
+=== SHOWROOM MOBILE FIX SUMMARY ===
+
+1. viewport meta tag updated:
+   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+2. Showroom track and slides:
+   - width:100vw → width:100% (prevents horizontal overflow on mobile)
+   - height:100vh → height:100dvh (handles address bar showing/hiding)
+
+3. Mobile-responsive CSS added (2 breakpoints):
+   @media (max-width:768px):
+     • Reduces padding from 44px 64px 40px to 28px clamp(20px,5vw,36px) 16px
+     • Stacks grid columns: .ld-sidecol and div[style*="flex:9 1 460px"] → flex:1 1 100%
+     • Reduces header gap from clamp(14px,2.4vw,30px) to 8px
+     • Larger touch targets: span[data-goto] padding 8px 12px, font-size 8px
+     • Reduces video mock scaling: .ld-vmock transform:scale(.6)
+     • Overflow hidden: body{overflow-x:hidden}
+
+   @media (max-width:420px):
+     • Further reduces padding to 16px clamp(16px,4vw,28px) 12px
+     • Single column layout: .ld-hero-wrap{container-type:inline-size}
+     • Smaller text: h1{font-size:clamp(36px,8vw,48px)}
+     • Full-width cards: .ld-pub-grid > div{width:100%}
+     • Simpler navigation: nav a{font-size:8px; padding:6px 8px}
+
+4. Added helper scripts for mobile vh/vw handling
+   • Safari vw fix script
+   • dvh calculation with safe-area-top
+
+=== KEY ISSUES FIXED ===
+• Horizontal scrolling caused by 100vw → fixed with 100%
+• Address bar shifting → fixed with 100dvh
+• Fixed padding too large for mobile → responsive reduction
+• Grid columns not stacking → now stack on mobile
+• Touch targets too small → increased padding and font sizes
+• Video/mock elements too large → scaled down
