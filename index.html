@@ -77,6 +77,9 @@
   /* 13 — CONTACT: el lead en nowrap se salía de la pantalla */
   .ld-contact-lead{white-space:normal !important;max-width:min(100%,42ch) !important;font-size:clamp(13px,3.4vw,16px) !important;line-height:1.6 !important}
 
+  /* FOOTER: tagline + dirección alineados a la izquierda en móvil */
+  .ld-foot-right{margin-left:0 !important;align-items:flex-start !important;text-align:left !important}
+
   /* 06 — MEDIA PLACEMENTS */
   .ld-fmt-side{min-width:0 !important;max-width:100% !important;margin-left:0 !important;padding-top:0 !important;align-items:flex-start !important}
 
@@ -472,8 +475,10 @@
   </section>
 
   <footer style="padding:28px max(clamp(24px,4.5vw,64px), (100% - 1320px) / 2); border-top:1px solid #1C201B; display:flex; flex-wrap:wrap; align-items:center; gap:14px clamp(24px,4vw,56px); font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.16em; color:#6E736C">
-    <span>LOOP DIGITAL © 2026</span>
-    <span style="margin-left:auto; color:#9C9A95">PREMIUM MEDIA FOR BRANDS THAT WANT TO BE REMEMBERED</span>
+    <span class="ld-foot-right" style="margin-left:auto; display:flex; flex-direction:column; align-items:flex-end; gap:32px; text-align:right">
+      <span><span style="margin-right:12px">LOOP DIGITAL © 2026</span><span style="color:#9C9A95">PREMIUM MEDIA FOR BRANDS THAT WANT TO BE REMEMBERED</span></span>
+      <span><span style="color:#E8FF52; margin-right:12px">OFFICE</span><span data-no-tr="">CRA 43 #9 SUR - 195, EL POBLADO · MEDELLÍN, COLOMBIA</span></span>
+    </span>
   </footer>
 
 </div>

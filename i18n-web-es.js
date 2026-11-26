@@ -12,6 +12,7 @@ window.LOOP_WEB_ES = {
 "Precision goes beyond expanding reach. It helps strengthen brand presence, relevance, recognition, recall and perception by connecting with high-value audiences.":"La precisión no solo amplía el alcance. Ayuda a fortalecer la presencia, relevancia, reconocimiento, recordación y percepción de la marca al conectar con audiencias de valor.",
 "OUR APPROACH":"NUESTRO ENFOQUE","WHY IT MATTERS":"POR QUÉ IMPORTA","WHAT WE DO":"QUÉ HACEMOS","OUR MINDSET":"NUESTRA MENTALIDAD","HOW WE DO IT":"CÓMO LO HACEMOS","WHAT WE ACTIVATE":"QUÉ ACTIVAMOS","MEDIA PLACEMENTS":"MEDIA PLACEMENTS","THE SHOWROOM":"EL SHOWROOM","PRECISION":"PRECISIÓN","THE ECOSYSTEM":"EL ECOSISTEMA","BRAND IMPACT":"IMPACTO DE MARCA","THE OUTCOME":"EL RESULTADO","ABOUT US":"NOSOTROS","CONTACT US":"CONTACTO",
 "LET'S TALK":"HABLEMOS",
+"OFFICE":"OFICINA",
 "PREMIUM MEDIA · SMARTER BRAND PRESENCE · ONE STRATEGIC PARTNER":"MEDIOS PREMIUM · PRESENCIA DE MARCA MÁS INTELIGENTE · UN SOLO SOCIO ESTRATÉGICO",
 "WHERE YOUR BRAND":"DONDE APARECE","APPEARS MATTERS":"TU MARCA IMPORTA",
 "We help brands build stronger, more intentional presence across premium media.":"Ayudamos a las marcas a construir una presencia más sólida e intencional en medios premium.",
