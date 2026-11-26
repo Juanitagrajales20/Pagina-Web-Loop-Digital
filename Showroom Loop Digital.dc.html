@@ -24,76 +24,87 @@ if(!window.innerWidth){
 <script src="i18n-es.js"></script>
 </helmet>
 <style>
-  /* Mobile-responsive rules for showroom */
-  @media (max-width:768px){
-    /* Reduce padding for mobile */
-    [style*="padding:44px 64px 40px"]{
-      padding:28px clamp(20px,5vw,36px) 16px !important
-    }
-    /* Stack grid columns on mobile - collapse 3-column grids to 1 column */
-    div[style*="grid-template-columns:repeat(3, minmax(0,1fr))"]{
-      grid-template-columns:1fr !important
-    }
-    /* Collapse 480px fixed grid column to full width */
-    div[style*="grid-template-columns:480px minmax(0,1fr)"]{
-      grid-template-columns:1fr !important
-    }
-    /* Reduce grid gaps for mobile */
-    div[style*="grid-template-columns:480px minmax(0,1fr)"] > *{gap:8px !important}
-    /* Stack grid columns on mobile */
-    .ld-sidecol,
-    div[style*="flex:9 1 460px"]{
-      flex:1 1 100% !important
-    }
-    /* Reduce header gap */
-    header{gap:8px !important}
-    /* Navigation chips: larger touch targets, proper z-index over logo */
-    span[data-goto]{
-      padding:14px 20px !important;
-      font-size:15px !important;
-      position:relative;
-      z-index:10;
-      display:inline-block;
-    }
-    /* Loop Digital logo: below navigation chips on mobile */
-    span[data-slot="footer-logo"]{
-      position:relative;
-      z-index:1;
-      bottom:12px !important;
-    }
-    /* Reduce video mock scaling */
-    .ld-vmock{transform:scale(.5) !important}
-    /* Better viewport handling */
-    body{overflow-x:hidden !important}
-    /* Fix absolute-positioned gradient overflow */
-    .ld-hero-gradient{display:none !important}
+  /* ===== Showroom — MOBILE (<768px). html.ld-m lo activa fit() en JS; desktop no se toca ===== */
+  html.ld-m, html.ld-m body{overflow:hidden; overscroll-behavior:none}
+  html.ld-m [data-slide-name]{overflow-x:hidden !important; overflow-y:auto !important; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; scrollbar-width:none}
+  html.ld-m [data-slide-name]::-webkit-scrollbar{display:none}
+  /* Contenedor de cada slide: crece con el contenido y se scrollea en vertical */
+  html.ld-m .ld-inner{height:auto !important; min-height:100%; padding:16px 16px 0 !important}
+  /* Barra superior */
+  html.ld-m .ld-top{display:flex !important; justify-content:space-between; gap:10px; padding-bottom:14px !important}
+  html.ld-m .ld-top a[data-back-web]{padding:9px 12px !important; font-size:10px !important; letter-spacing:.14em !important}
+  html.ld-m .ld-top [data-lang="menu"]{width:36px !important; height:36px !important}
+  html.ld-m .ld-top [data-lang-menu] [data-lang]{padding:14px 18px !important; font-size:12px !important}
+  html.ld-m .ld-top > span:last-child > span > span:first-child{display:none}
+  @media (max-width:480px){ html.ld-m .ld-top > span:first-child{display:none} }
+  /* Home */
+  /* Glow del home: anclado al borde inferior (un bottom negativo creaba 300px de scroll vacío) */
+  html.ld-m .ld-hero-gradient{right:0 !important; bottom:0 !important; left:0 !important; width:auto !important; height:70% !important; border-radius:0 !important; background:radial-gradient(ellipse 85% 75% at 85% 100%, rgba(155,77,255,.45), rgba(155,77,255,.08) 60%, rgba(155,77,255,0) 100%) !important; pointer-events:none}
+  /* Home: la página cabe en una pantalla; los media placements en una grilla de botones ordenada */
+  html.ld-m [data-slide-name="Showroom Home"] .ld-inner{height:100% !important; min-height:0}
+  html.ld-m [data-slide-name="Showroom Home"] .ld-main{flex:1 1 auto !important; min-height:0; padding:20px 0 !important}
+  html.ld-m [data-slide-name="Showroom Home"] .ld-foot{position:relative !important; flex-direction:column !important; align-items:stretch !important; gap:16px !important; padding:16px 16px calc(14px + env(safe-area-inset-bottom)) !important; background:transparent; -webkit-backdrop-filter:none; backdrop-filter:none}
+  html.ld-m [data-slide-name="Showroom Home"] .ld-foot > [data-slot="footer-logo"]{order:1; align-self:flex-start}
+  html.ld-m [data-slide-name="Showroom Home"] .ld-chips{display:grid !important; grid-template-columns:repeat(3, minmax(0,1fr)); gap:8px !important; overflow:visible; padding:0; -webkit-mask-image:none; mask-image:none}
+  html.ld-m [data-slide-name="Showroom Home"] .ld-chips > [data-chip]{margin:0 !important; text-align:center; padding:13px 4px !important; font-size:10.5px !important; letter-spacing:.1em !important; overflow:hidden; text-overflow:ellipsis}
+  html.ld-m [data-slide-name="Showroom Home"] .ld-chips > [data-goto="1"]{display:none}
+  html.ld-m [data-slide-name="Showroom Home"] .ld-chips > [data-goto="12"]{grid-column:span 2; border-color:#E8FF52 !important; color:#E8FF52 !important}
+  @media (max-height:760px){
+    html.ld-m [data-slide-name="Showroom Home"] h1{font-size:clamp(30px,9vw,48px) !important}
+    html.ld-m [data-slide-name="Showroom Home"] .ld-main > div{gap:14px !important}
+    html.ld-m [data-slide-name="Showroom Home"] h1 + p{font-size:14px !important; line-height:1.5 !important}
+    html.ld-m [data-slide-name="Showroom Home"] .ld-chips > [data-chip]{padding:11px 4px !important}
   }
-  @media (max-width:420px){
-    /* Further reduce padding */
-    [style*="padding:44px 64px 40px"]{
-      padding:16px clamp(16px,4vw,28px) 12px !important
-    }
-    /* Single column layout for hero content */
-    .ld-hero-wrap{container-type:inline-size}
-    /* Smaller text sizes - maintain readability */
-    h1{font-size:clamp(32px,8vw,42px) !important}
-    /* Full-width cards */
-    .ld-pub-grid > div{width:100% !important; max-width:100% !important}
-    /* Simpler navigation - larger touch targets */
-    nav a{font-size:11px !important; padding:8px 12px !important}
-    /* Additional: collapse remaining grids to 1 column on small mobile */
-    div[style*="grid-template-columns:repeat(3, minmax(0,1fr))"]{
-      grid-template-columns:1fr !important
-    }
-    div[style*="grid-template-columns:480px minmax(0,1fr)"]{
-      grid-template-columns:1fr !important
-    }
-    /* Further reduced hero h1 for small mobile */
-    .ld-hero h1{font-size:clamp(28px,7vw,38px) !important}
-    /* Tighter nav gap */
-    .ld-format-nav{gap:8px !important}
-  }
-</style>
+  html.ld-m .ld-main{flex:1 0 auto !important; padding:36px 0 40px; align-items:center}
+  html.ld-m .ld-main > div{gap:22px !important; min-width:0; max-width:100%}
+  html.ld-m h1{font-size:clamp(34px,10.4vw,60px) !important; white-space:normal !important; line-height:.95 !important}
+  html.ld-m .ld-main > div > div:last-child{gap:14px !important}
+  html.ld-m .ld-main > div > div:last-child > span:first-child{width:44px !important; flex:0 0 auto}
+  html.ld-m .ld-main > div > div:last-child > span:last-child{white-space:nowrap}
+  html.ld-m h1 + p{white-space:normal !important; font-size:15px !important; line-height:1.6 !important; max-width:34em}
+  /* Slides de media placements: una columna */
+  html.ld-m .ld-main.ld-grid{display:flex !important; flex-direction:column; align-items:stretch !important; gap:32px !important; padding:28px 0 40px}
+  html.ld-m .ld-text h2{font-size:clamp(46px,15vw,72px) !important; margin-bottom:20px !important}
+  html.ld-m .ld-text > span:first-child{margin-bottom:14px !important}
+  html.ld-m .ld-text > h2 + span{margin-bottom:28px !important}
+  html.ld-m .ld-text > div{padding-top:22px !important; gap:12px !important}
+  html.ld-m .ld-text p{width:auto !important; max-width:100% !important}
+  html.ld-m .ld-text > div > p:not(:last-child){font-size:20px !important}
+  html.ld-m .ld-text > div > p:last-child{font-size:15px !important; line-height:1.65 !important}
+  /* Columna visual */
+  html.ld-m .ld-media{height:auto !important; overflow:visible !important}
+  html.ld-m .ld-media > img{height:auto !important; max-height:none !important; transform:none !important}
+  html.ld-m [data-slide-name="Format 06 NATIVE"] .ld-media{overflow:hidden !important}
+  html.ld-m .ld-media [data-scroll-area]{height:auto !important; overflow:visible !important; padding-right:0 !important; -webkit-mask-image:none !important; mask-image:none !important}
+  html.ld-m .ld-media [data-scroll-area] > div{grid-template-columns:repeat(2, minmax(0,1fr)) !important; gap:10px !important}
+  html.ld-m .ld-media .ld-sb{display:none !important}
+  /* Video: mocks apilados y más chicos */
+  html.ld-m [data-cards-area="video"]{height:auto !important; padding-bottom:150px}
+  html.ld-m [data-cards-area="video"] > div:first-child{position:relative !important; top:0 !important; width:88% !important}
+  html.ld-m [data-cards-area="video"] > div:last-child{width:138px !important; border-radius:22px !important}
+  html.ld-m [data-cards-area="video"] > div:last-child > div{border-radius:18px !important; padding:14px 9px 12px !important; gap:8px !important}
+  html.ld-m [data-cards-area="video"] > div:last-child > div > div:nth-child(3){height:150px !important}
+  /* Contact us */
+  html.ld-m .ld-contact > div{gap:24px !important}
+  html.ld-m .ld-contact > div > div:nth-child(3){font-size:clamp(30px,9vw,56px) !important}
+  html.ld-m .ld-contact > div > span:nth-child(2){font-size:40px !important}
+  html.ld-m .ld-contact a[href^="mailto"]{width:100%; justify-content:center; box-sizing:border-box; padding:18px 24px !important; font-size:12px !important}
+  html.ld-m .ld-contact > div > div:last-child, html.ld-m .ld-contact > div > div:last-child > div{width:100%}
+  html.ld-m [data-slide-name="12 Contact us"] .ld-inner > div:nth-child(2){width:520px !important; height:520px !important; right:-40% !important; top:-10% !important}
+  /* Navegación inferior: barra fija abajo, logo a la izquierda y chips con scroll horizontal (nunca tapan el logo) */
+  html.ld-m .ld-foot{position:sticky !important; bottom:0; z-index:40; margin:auto -16px 0 !important; padding:10px 0 calc(10px + env(safe-area-inset-bottom)) 16px !important; display:flex !important; flex-wrap:nowrap !important; align-items:center !important; gap:14px !important; background:rgba(8,9,10,.94); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px)}
+  html.ld-m .ld-foot > [data-slot="footer-logo"]{position:static !important; order:-1; flex:0 0 auto; font-size:21px !important}
+  html.ld-m .ld-foot > div:not(.ld-footcol){display:none !important}
+  html.ld-m .ld-footcol{flex:1 1 auto; min-width:0; gap:0 !important}
+  html.ld-m .ld-footcol > span{display:none !important}
+  html.ld-m .ld-chips{position:relative; flex-wrap:nowrap !important; gap:8px !important; overflow-x:auto; scrollbar-width:none; scroll-behavior:smooth; padding:2px 0 2px 2px; -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 28px), transparent); mask-image:linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 28px), transparent)}
+  html.ld-m .ld-chips::-webkit-scrollbar{display:none}
+  html.ld-m .ld-chips > [data-chip]{flex:0 0 auto; padding:12px 14px !important; font-size:11px !important; letter-spacing:.14em !important}
+  html.ld-m .ld-chips > [data-chip]:first-child{margin-left:12px}
+  html.ld-m .ld-chips > [data-chip]:last-child{margin-right:34px}
+  /* Overlay de demos en móvil */
+  html.ld-m [data-demo-overlay]{padding:12px 12px calc(12px + env(safe-area-inset-bottom)) !important; gap:10px !important}
+  html.ld-m [data-demo-overlay] button{padding:10px 12px !important; font-size:9.5px !important; letter-spacing:.1em !important}
 </style>
 <div data-slot="showroom-track" ref="{{ trackRef }}" style="display:flex; flex-direction:row; gap:0; width:100%; height:100dvh; overflow:hidden; background:#08090A">
 <div data-slide-name="Showroom Home" style="position:relative; flex:0 0 auto; scroll-snap-align:start; width:100%; height:100dvh; overflow:hidden; background:#08090A; color:#EDEFEA; font-family:Archivo, sans-serif; color:#EDEFEA">
@@ -659,11 +670,13 @@ if(!window.innerWidth){
       (this.sbUpd || []).forEach(f => { requestAnimationFrame(f); setTimeout(f, 300); });
       el.scrollLeft = 0;
       const c = el.children[n];
+      if (c) c.scrollTop = 0;
       if (!instant && prev !== n && c.animate) {
         const dir = n > prev ? 1 : -1;
         c.animate([{ opacity: 0, transform: 'translateX(' + (dir * 60) + 'px)' }, { opacity: 1, transform: 'translateX(0)' }], { duration: 380, easing: 'cubic-bezier(.22,.61,.36,1)' });
       }
       sync(n + 1);
+      if (this.centerChip) this.centerChip();
     };
     this.go = go; this.cur = cur;
     this.onMsg = e => { if (e.data === 'loop-close-demo') this.closeDemo(); };
@@ -728,6 +741,7 @@ if(!window.innerWidth){
     Object.defineProperty(window, 'currentSlide', { configurable: true, get: () => this.idx });
     this.onWheel = e => {
       if (this.demoEl) return;
+      if (document.documentElement.classList.contains('ld-m')) return;
       const sa = e.target.closest && e.target.closest('[data-scroll-area]');
       if (sa && sa.scrollHeight > sa.clientHeight) return;
       e.preventDefault();
@@ -736,9 +750,45 @@ if(!window.innerWidth){
       if (this.demoEl) { if (e.key === 'Escape') this.closeDemo(); return; }
       if (['ArrowRight','ArrowLeft','PageDown','PageUp'].includes(e.key)) { e.stopImmediatePropagation(); e.preventDefault(); }
     };
+    this.tagMobile = () => {
+      Array.from(el.children).forEach(s => {
+        const inner = Array.from(s.children).find(k => /padding:\s*44px/.test(k.getAttribute('style') || '')); if (!inner || inner.classList.contains('ld-inner')) return;
+        inner.classList.add('ld-inner');
+        const kids = Array.from(inner.children);
+        if (kids[0]) kids[0].classList.add('ld-top');
+        const foot = kids[kids.length - 1]; if (foot) foot.classList.add('ld-foot');
+        const main = kids.find(k => /flex:\s*1/.test(k.getAttribute('style') || '') && k !== foot);
+        if (main) {
+          main.classList.add('ld-main');
+          if (/grid-template-columns:\s*480px/.test(main.getAttribute('style') || '')) { main.classList.add('ld-grid'); if (main.children[0]) main.children[0].classList.add('ld-text'); if (main.children[1]) main.children[1].classList.add('ld-media'); }
+          else if (/Contact/i.test(s.dataset.slideName || '')) main.classList.add('ld-contact');
+        }
+        const chip = foot && foot.querySelector('[data-chip]');
+        if (chip) { chip.parentElement.classList.add('ld-chips'); const col = Array.from(foot.children).find(c => c.contains(chip)); if (col) col.classList.add('ld-footcol'); }
+      });
+    };
+    this.centerChip = () => {
+      if (!document.documentElement.classList.contains('ld-m')) return;
+      const s = el.children[this.idx]; if (!s) return;
+      requestAnimationFrame(() => s.querySelectorAll('.ld-chips').forEach(sc => {
+        const c = sc.querySelector('[data-chip="true"][data-goto="' + (this.idx + 1) + '"]'); if (!c) return;
+        const prev = sc.style.scrollBehavior; sc.style.scrollBehavior = 'auto';
+        const cr = c.getBoundingClientRect(), sr = sc.getBoundingClientRect();
+        sc.scrollLeft += (cr.left + cr.width / 2) - (sr.left + sr.width / 2);
+        sc.style.scrollBehavior = prev;
+      }));
+    };
     this.fit = () => {
       const W = el.clientWidth || window.innerWidth, H = el.clientHeight || window.innerHeight;
       if (!W || !H) return;
+      this.tagMobile();
+      const mob = W < 768;
+      document.documentElement.classList.toggle('ld-m', mob);
+      if (mob) {
+        Array.from(el.children).forEach(s => { s.style.zoom = 1; s.style.width = W + 'px'; s.style.height = H + 'px'; });
+        el.scrollLeft = 0; this.centerChip && this.centerChip();
+        return;
+      }
       let z = H / 900, sw = W / z, sh = 900;
       if (sw < 1600) { z = W / 1600; sw = 1600; sh = H / z; }
       Array.from(el.children).forEach(s => { s.style.zoom = z; s.style.width = sw + 'px'; s.style.height = sh + 'px'; });
