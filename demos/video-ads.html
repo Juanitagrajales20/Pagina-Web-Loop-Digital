@@ -339,4 +339,107 @@ function run(){document.querySelectorAll('.context,.context-section,section.cont
 setTimeout(run,300);setTimeout(run,2500);addEventListener('load',run);
 })();
 </script>
+<!-- Loop Digital — showcase mobile (<=600px) -->
+<style id="ld-mobile">
+@media (max-width:600px){
+  :root{--safe:20px !important}
+  html,body{overflow-x:clip !important}
+  /* Header sticky compacto: logo izq · × CERRAR der */
+  .topbar{min-height:0 !important;padding:12px 16px !important;gap:12px !important;grid-template-columns:1fr auto !important}
+  .topbar .logo{font-size:22px !important}
+  .topbar .close{padding:10px 14px !important;font-size:9.5px !important;letter-spacing:.14em !important}
+  /* Fila meta */
+  .page-wrap{width:calc(100% - 24px) !important;margin-top:18px !important;margin-bottom:28px !important}
+  .showcase-meta{gap:12px !important;margin-bottom:12px !important}
+  .showcase-meta .context-label{font-size:9px !important;letter-spacing:.18em !important;line-height:1.5 !important}
+  .showcase-meta{flex-direction:column !important;align-items:flex-start !important}
+  .devices{margin-left:0 !important;gap:18px !important;font-size:9.5px !important;letter-spacing:.16em !important}
+  /* Browser chrome: URL en una línea */
+  .browser-chrome{height:38px !important;gap:7px !important;padding:0 10px !important}
+  .browser-chrome .dot{width:8px !important;height:8px !important;flex:0 0 auto}
+  .browser-chrome .url{min-width:0;margin-left:6px !important;height:auto !important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:.06em !important;font-size:9.5px !important}
+  /* Hero del publisher */
+  .hero{padding:28px var(--safe) 24px !important}
+  .hero p{font-size:14px !important}
+  /* Tabs del publisher: scroll horizontal sin cortar */
+  .newsnav{gap:22px !important;overflow-x:auto !important;scrollbar-width:none;padding-right:var(--safe) !important;letter-spacing:.18em !important}
+  .newsnav span{flex:0 0 auto}
+  /* Títulos y textos un paso más chicos */
+  .publisher h2,.publisher h3,.ld-close h3{font-size:24px !important}
+  .publisher p,.ld-lead,.ld-close p:not(.ld-lead){font-size:14.5px !important}
+  /* Etiquetas de banner nunca más anchas que la pantalla */
+  .ad-label,.placement-label,.header-ad-label,[class*="ad-label"]{width:auto !important;max-width:100% !important;white-space:normal !important}
+  /* Expandibles: etiqueta encima del banner, centrados (sin zona de expansión lateral) */
+  .expand-area{flex-direction:column !important;align-items:center !important;justify-content:flex-start !important;height:auto !important;width:100% !important;gap:12px !important;margin-left:0 !important}
+  .expand-area > .expand-zone{display:none !important}
+  /* Bloque de cierre: una columna */
+  .ld-close{padding:44px var(--safe) 48px !important;gap:44px !important}
+  .ld-block{gap:22px !important}
+  .ld-head{grid-template-columns:1fr !important;gap:12px !important}
+  .ld-roles,.ld-steps,.ld-outcomes{grid-template-columns:1fr !important}
+  .ld-role,.ld-outcomes > div,.ld-steps > div{padding:18px 0 14px !important;border-left:0 !important}
+  .ld-role + .ld-role,.ld-outcomes > div + div,.ld-steps > div + div{padding-left:0 !important;border-top:1px solid rgba(17,17,17,.18) !important}
+  .ld-tag{white-space:normal !important}
+  .ld-sign{flex-direction:column !important;gap:10px !important;letter-spacing:.2em !important}
+  /* Footers */
+  .publisher-footer,.global-footer{flex-direction:column !important;align-items:flex-start !important;gap:10px !important;padding:18px 16px !important;letter-spacing:.16em !important}
+}
+</style>
+<script id="ld-mobile-fit">
+(function(){
+  if(window.__ldMobileFit) return; window.__ldMobileFit=1;
+  var AD=/(^|[\s_-])(ad|ads|banner|billboard|leader|leaderboard|skin|takeover|header-wrap|ad\d+x\d+|ad-\d+)/i;
+  function avail(el){var p=el.parentElement; if(!p) return Infinity; var cs=getComputedStyle(p); return p.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);}
+  function isAd(el){ if(el.matches('iframe,video,canvas,ins,img')) return true; var c=(typeof el.className==='string'?el.className:'')+' '+(el.id||''); return AD.test(c) || !!el.querySelector('iframe,ins,video,canvas,[id*="adform"],[class*="adform"]'); }
+  function reset(el){ el.style.transform=''; el.style.transformOrigin=''; el.style.marginBottom=''; el.style.marginRight=''; el.removeAttribute('data-ld-mfit'); }
+  function fit(){
+    document.querySelectorAll('[data-ld-mfit]').forEach(reset);
+    document.querySelectorAll('[data-ld-mfloat]').forEach(function(f){ f.style.transform=''; f.style.transformOrigin=''; f.removeAttribute('data-ld-mfloat'); });
+    document.querySelectorAll('[data-ld-mgrid]').forEach(function(g){ g.style.removeProperty('grid-template-columns'); g.removeAttribute('data-ld-mgrid'); });
+    if(!window.matchMedia('(max-width:600px)').matches) return;
+    var pub=document.querySelector('.publisher'); if(!pub) return;
+    var walk=function(n){
+      for(var i=0;i<n.children.length;i++){
+        var el=n.children[i], cs=getComputedStyle(el);
+        if(cs.display==='none'||cs.position==='fixed'||cs.position==='absolute') continue;
+        if(/scale\(/.test(el.style.transform)) continue;
+        var a=avail(el), w=el.offsetWidth;
+        if(w>a+1 && a>0 && isAd(el)){
+          var s=a/w, h=el.offsetHeight;
+          el.setAttribute('data-ld-mfit','');
+          el.style.transformOrigin='top left'; el.style.transform='scale('+s+')';
+          el.style.setProperty('margin-bottom',(h*s-h)+'px','important'); el.style.setProperty('margin-right',(w*s-w)+'px','important');
+          continue;
+        }
+        if(cs.display==='grid' &&el.scrollWidth>el.clientWidth+1){ el.setAttribute('data-ld-mgrid',''); el.style.setProperty('grid-template-columns','minmax(0,1fr)','important'); }
+        if(el.tagName!=='IFRAME') walk(el);
+      }
+    };
+    walk(pub);
+    /* El fit propio del showcase compensa la escala con margin negativo, pero reglas !important lo pisan: reforzarlo */
+    var enforce=function(el){
+      if(!window.matchMedia('(max-width:600px)').matches) return;
+      ['margin-bottom','margin-right'].forEach(function(p){ var v=el.style.getPropertyValue(p); if(v && parseFloat(v)<0 && el.style.getPropertyPriority(p)!=='important' && getComputedStyle(el).getPropertyValue(p)!==v) el.style.setProperty(p,v,'important'); });
+    };
+    pub.querySelectorAll('[style*="scale("]').forEach(function(el){
+      if(el.hasAttribute('data-ld-mfit')) return;
+      enforce(el);
+      if(!el.__ldObs && window.MutationObserver){ el.__ldObs=new MutationObserver(function(){ enforce(el); }); el.__ldObs.observe(el,{attributes:true,attributeFilter:['style']}); }
+    });
+    /* Adform dibuja el anuncio en una capa flotante (hija de body) encima del slot: escalarla igual que el slot */
+    var vw=document.documentElement.clientWidth;
+    document.querySelectorAll('body > .adform-adbox').forEach(function(f){
+      var cs=getComputedStyle(f); if(cs.position!=='absolute'&&cs.position!=='fixed') return;
+      var w=f.offsetWidth, r=f.getBoundingClientRect(); if(!w || w<=vw) return;
+      var s=null;
+      document.querySelectorAll('[data-ld-mfit]').forEach(function(slot){ var sr=slot.getBoundingClientRect(); if(Math.abs(sr.top-r.top)<8 && Math.abs(sr.left-r.left)<8) s=sr.width/w; });
+      if(s===null) s=Math.max(0.1,(vw-Math.max(0,r.left)-12)/w);
+      f.setAttribute('data-ld-mfloat',''); f.style.transformOrigin='top left'; f.style.transform='scale('+s+')';
+    });
+  }
+  var t; function later(){ clearTimeout(t); t=setTimeout(fit,150); }
+  window.addEventListener('resize',later); window.addEventListener('load',later);
+  [300,1200,2500,4500,7000,10000].forEach(function(ms){ setTimeout(fit,ms); });
+})();
+</script>
 </body></html>
