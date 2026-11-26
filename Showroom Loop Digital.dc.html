@@ -47,21 +47,19 @@ if(!window.innerWidth){
     }
     /* Reduce header gap */
     header{gap:8px !important}
-    /* Larger touch targets for navigation chips - mobile only (outer media query is max-width:768px) */
-    span[data-goto]{padding:12px 18px !important; font-size:14px !important}
-/* Kept for reference - desktop keeps original inline styles: font-size:10.5px; padding:11px 16px */
-/* Desktop keeps original: padding:11px 16px; font-size:10.5px from inline style */
-
-/* Prevent navigation from overlapping Loop Digital logo on mobile - buttons over logo */
-    @media (max-width:768px){
-      /* Nav chips above logo */
-      span[data-goto]{position:relative; z-index:10 !important}
-      /* Logo below nav chips */
-      span[data-slot="footer-logo"]{position:relative; z-index:1 !important; bottom:22px !important}
-      /* Larger nav chips */
-      span[data-goto]{padding:14px 20px !important; font-size:16px !important}
-      /* Reduce chip gap */
-      .ld-format-nav{gap:12px !important}
+    /* Navigation chips: larger touch targets, proper z-index over logo */
+    span[data-goto]{
+      padding:14px 20px !important;
+      font-size:15px !important;
+      position:relative;
+      z-index:10;
+      display:inline-block;
+    }
+    /* Loop Digital logo: below navigation chips on mobile */
+    span[data-slot="footer-logo"]{
+      position:relative;
+      z-index:1;
+      bottom:12px !important;
     }
     /* Reduce video mock scaling */
     .ld-vmock{transform:scale(.5) !important}
@@ -77,12 +75,12 @@ if(!window.innerWidth){
     }
     /* Single column layout for hero content */
     .ld-hero-wrap{container-type:inline-size}
-    /* Smaller text sizes */
-    h1{font-size:clamp(36px,8vw,48px) !important}
+    /* Smaller text sizes - maintain readability */
+    h1{font-size:clamp(32px,8vw,42px) !important}
     /* Full-width cards */
     .ld-pub-grid > div{width:100% !important; max-width:100% !important}
-    /* Simpler navigation */
-    nav a{font-size:8px !important; padding:6px 8px !important}
+    /* Simpler navigation - larger touch targets */
+    nav a{font-size:11px !important; padding:8px 12px !important}
     /* Additional: collapse remaining grids to 1 column on small mobile */
     div[style*="grid-template-columns:repeat(3, minmax(0,1fr))"]{
       grid-template-columns:1fr !important
@@ -90,11 +88,12 @@ if(!window.innerWidth){
     div[style*="grid-template-columns:480px minmax(0,1fr)"]{
       grid-template-columns:1fr !important
     }
-    /* Reduce hero h1 further for very small screens */
-    .ld-hero h1{font-size:clamp(32px,7vw,42px) !important}
-    /* tighter nav gap */
-    .ld-format-nav{gap:6px !important}
+    /* Further reduced hero h1 for small mobile */
+    .ld-hero h1{font-size:clamp(28px,7vw,38px) !important}
+    /* Tighter nav gap */
+    .ld-format-nav{gap:8px !important}
   }
+</style>
 </style>
 <div data-slot="showroom-track" ref="{{ trackRef }}" style="display:flex; flex-direction:row; gap:0; width:100%; height:100dvh; overflow:hidden; background:#08090A">
 <div data-slide-name="Showroom Home" style="position:relative; flex:0 0 auto; scroll-snap-align:start; width:100%; height:100dvh; overflow:hidden; background:#08090A; color:#EDEFEA; font-family:Archivo, sans-serif; color:#EDEFEA">
